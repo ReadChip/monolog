@@ -1,0 +1,74 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.kuhaku{
+    padding:50px;
+}
+.kuhaku2{
+    padding:5px;
+}
+
+.head{
+    background-color: #605C55; 
+}
+
+.main{
+    background-color: #D4C0A8;
+}
+
+.body2{
+    background-color:#605C55;
+    padding:20px;
+}
+
+
+
+.fotter{
+     background-color: #605C55;
+         padding:50px;
+}
+
+p{
+    color:#fff;
+    font-size: 15px;
+}
+
+h1{
+    color:#fff;
+    font-size:250%;
+
+}
+
+h2{
+    color:#fff;
+}
+
+h3{
+    color:#fff;
+}
+
+
+
+.btn-black {
+    border-radius: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Avenir', serif;
+}
+.btn-black:hover {
+     background-color: #fff;
+     color: #000;
+}
+
+.focus{
+    background: #EFEEEE;
+}
+
+
+
+
+.slick-slide {
+  text-align: center;
+  color: #419be0;
+  background: white;
+}

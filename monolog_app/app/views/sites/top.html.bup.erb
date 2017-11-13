@@ -1,4 +1,16 @@
-   <!--Top画面-->
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                               'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application',
+                               'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+
+    <!--Top画面-->
     <div class="container-fluid head">
       <div class="col-xs-9 col-sm-12  col-md-6 col-md-offset-3">
         <h1>Monolog</h1>
@@ -154,3 +166,35 @@
          </div>
         </div>
     </div>
+
+    <div class="fotter">
+      <p>
+      </p>
+    </div>
+
+    <!--フォームの色変更-->
+     <script>
+         $(function(){
+           $('input').focus(function(){
+             $(this).addClass('focus');
+           }).blur(function(){
+             $(this).removeClass('focus');
+           });
+         });
+     </script>
+
+     <!--画像のスライド-->
+     <script>
+        $(function() {
+          $('.slick-box').slick({
+                autoplay: true, //オートプレイ
+    	        	autoplaySpeed: 3000 //オートプレイの切り替わり時間
+ 
+           }); 
+        });
+     </script>
+
+
+  </body>
+    
+</html>

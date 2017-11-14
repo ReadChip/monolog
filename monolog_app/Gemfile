@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'jquery-slick-rails'
 # slim(erbで書くとコードが長くて見づらいのでslimを使います。拡張子はerb→slim)
 gem 'slim'
+
 gem 'coffee-script-source', '1.8.0'
 
 group :development, :test do

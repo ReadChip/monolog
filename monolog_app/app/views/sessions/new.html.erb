@@ -22,6 +22,10 @@
           <%= f.label :password %>
           <%= f.password_field :password, class: 'form-control' %>
           <div class="container-fluid kuhaku2"></div>
+          <%= f.label :remember_me, class: "checkbox inline" do %>
+          <%= f.check_box :remember_me %>
+          <span>Remember me on this computer</span>
+          <% end %>
           <%= f.submit "Log in", class: "btn default" %>
         <% end %>
       <p>アカウントを持ってない? <%= link_to "今すぐ登録！", signup_path %></p>

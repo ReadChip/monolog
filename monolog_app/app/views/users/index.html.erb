@@ -7,3 +7,7 @@
     #ログインしてないとき
     <li><%= link_to "ログイン", login_path %></li>
 <% end %>
+
+<ul class="users">
+  <%= render @users %>
+</ul>

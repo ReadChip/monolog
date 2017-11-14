@@ -1,6 +1,6 @@
 <% provide(:title, "Log in") %>
 <div class="container-fluid head">
-  <div class="col-xs-9 col-sm-12  col-md-6 col-md-offset-4">
+  <div class="col-xs-12 col-sm-12  col-md-6 col-md-offset-4">
     <h1>Monologにログインする</h1>
   </div>
 
@@ -13,16 +13,16 @@
 
 <div class="container-fluid main">
   <div class="row">
-    <div class="col-md-5 col-md-offset-3">
+    <div class="col-sm-7 col-sm-offset-3 col-md-5 col-md-offset-3">
       <div class="container-fluid kuhaku2"></div>
         <%= form_for(:session, url: login_path) do |f| %>
-          <%= f.label :email %>
-          <%= f.email_field :email, class: 'form-control' %>
+          <%= f.label :email, "Email" %>
+          <%= f.email_field :email, class: 'form-control', placeholder: "メールアドレス" %>
           <div class="container-fluid kuhaku2"></div>     
           <%= f.label :password %>
-          <%= f.password_field :password, class: 'form-control' %>
+          <%= f.password_field :password, class: 'form-control', placeholder: "パスワード"  %>
           <div class="container-fluid kuhaku2"></div>
-          <%= f.submit "Log in", class: "btn default" %>
+          <%= f.submit "Log in", class: "btn btn-default"%>
         <% end %>
       <p>アカウントを持ってない? <%= link_to "今すぐ登録！", signup_path %></p>
     </div>

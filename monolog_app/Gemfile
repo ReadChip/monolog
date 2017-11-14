@@ -26,6 +26,7 @@ gem 'jquery-slick-rails'
 gem 'slim'
 
 gem 'coffee-script-source', '1.8.0'
+gem 'slim'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -1,4 +1,5 @@
 <% provide(:title, 'Sign up') %>
+
 <div class="container-fluid head">
   <div class="col-xs-9 col-sm-12  col-md-6 col-md-offset-4">
     <h1>Monologに登録する</h1>
@@ -15,7 +16,7 @@
     <div class="col-sm-7 col-sm-offset-3 col-md-5 col-md-offset-3">
       <div class="container-fluid kuhaku2"></div>
       <%= form_for(@user, url: signup_path) do |f| %>
-        <%= render 'shared/error_messages' %>
+        <%= render 'shared/error_messages', object: f.object %>
 
         <%= f.label :name, "UserID"%>
         <%= f.text_field :name, class: 'form-control', placeholder: "ユーザーID"  %>
@@ -26,7 +27,7 @@
         <%= f.label :password %>
         <%= f.password_field :password, class: 'form-control', placeholder: "パスワード"%>
 
-        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.label :password_confirmation, "パスワード再入力" %>
         <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "パスワード再入力" %>
         <div class="kuhaku2"></div>
         <%= f.submit "アカウント作成", class: "btn btn-default" %>

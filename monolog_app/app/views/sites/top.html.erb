@@ -1,3 +1,23 @@
+<!--ログインしているときのTop画面-->
+<% if logged_in? %>
+
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+        
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>Micropost Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+
    <!--Top画面-->
     <div class="container-fluid head">
       <div class="col-xs-9 col-sm-12  col-md-6 col-md-offset-3">
@@ -100,4 +120,5 @@
            <p>3. あなたが投稿したものは時間を(0~6時間)ズラして投稿されるので、時間場所を気にせず投稿できます。</p>
          </div>
         </div>
-    </div>
+</div>
+<% end %>

@@ -15,22 +15,23 @@
   <div class="row">
     <div class="col-sm-7 col-sm-offset-3 col-md-5 col-md-offset-3">
       <div class="container-fluid kuhaku2"></div>
+
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+
         <%= form_for(:session, url: login_path) do |f| %>
-          <%= f.label :email, "Email" %>
-          <%= f.email_field :email, class: 'form-control', placeholder: "メールアドレス" %>
+          <%= f.label :name, "ユーザーID" %>
+          <%= f.text_field :name, class: 'form-control', placeholder: "ユーザーID" %>
           <div class="container-fluid kuhaku2"></div>     
           <%= f.label :password %>
           <%= f.password_field :password, class: 'form-control', placeholder: "パスワード"  %>
           <div class="container-fluid kuhaku2"></div>
-<<<<<<< HEAD
           <%= f.label :remember_me, class: "checkbox inline" do %>
           <%= f.check_box :remember_me %>
-          <span>Remember me on this computer</span>
+          <span>ログイン状態を維持する</span>
           <% end %>
-          <%= f.submit "Log in", class: "btn default" %>
-=======
-          <%= f.submit "Log in", class: "btn btn-default"%>
->>>>>>> af1654511b6cc5a10aca377407c19d3794d2b7ce
+          <%= f.submit "ログイン", class: "btn btn-default"%>
         <% end %>
       <p>アカウントを持ってない? <%= link_to "今すぐ登録！", signup_path %></p>
     </div>

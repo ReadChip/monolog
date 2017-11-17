@@ -1,0 +1,58 @@
+body
+{
+    background-color:#828282;
+background-image: url("https://www.transparenttextures.com/patterns/fabric-of-squares.png");
+}
+
+
+.topbar
+{
+    background-color:#1C1C1C;
+    background-image: url("https://www.transparenttextures.com/patterns/fabric-of-squares.png");
+    height: 47px;
+}
+
+.menu
+{
+    padding-left: 20px;
+}
+
+.white
+{
+    color:#DCDCDC;
+    top: 15px;
+}
+
+.kuhaku
+{
+    padding:8px;
+}
+
+
+.menuimg
+{
+    position:relative;
+}
+
+.thumbnailimg
+{
+    position:absolute;
+    left:25px;
+    top: 36px;
+}
+
+.username
+{
+    position:absolute;
+    left:150px;
+    top: 60px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.userid
+{
+    position:absolute;
+    left:150px;
+    top: 90px;
+}

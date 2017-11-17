@@ -1,0 +1,35 @@
+<!--= @user.name  = @user.email 
+/li %= link_to "ホーム", root_url
+-->
+
+<!--ヘッダー（上のトップバー、タイムラインと通知を表示します）-->
+<div class="container-fluid topbar">
+    <div class="row">
+        <div class="col-md-1 col-md-offset-2">
+                <div class="glyphicon glyphicon-home white">　HOME</div>
+        </div>
+        <div class="col-md-1">
+                <div class="glyphicon glyphicon-bell white">　BELL</div>
+        </div>
+    </div>
+</div>
+
+<!--空白-->
+<div class="container-fluid kuhaku"></div>
+
+<!--左のメニューです（ここに自分の名前やらサムネなど入る予定です）-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 col-md-offset-2">
+              <!--メニューの背景画像-->
+              <div class="menuimg"><%= image_tag 'menu.png'%></div>
+              <!--サムネイル画像-->
+              <div class="thumbnailimg"> <%=image_tag 'thumbnail.png', :width => '80', :height => '80'%></div>
+              <!--ユーザーの名前-->
+              <div class="username"> ささき</div>
+              <!--ユーザーのID-->
+              <div class="userid">   @sasaki</div>
+         </div>
+    </div>
+</div>
+

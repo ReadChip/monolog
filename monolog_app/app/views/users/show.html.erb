@@ -4,32 +4,42 @@
 
 <!--ヘッダー（上のトップバー、タイムラインと通知を表示します）-->
 <div class="container-fluid topbar">
-    <div class="row">
-        <div class="col-md-1 col-md-offset-2">
-                <div class="glyphicon glyphicon-home white">　HOME</div>
-        </div>
-        <div class="col-md-1">
-                <div class="glyphicon glyphicon-bell white">　BELL</div>
-        </div>
+  <div class="row">
+    <div class="col-md-1 col-md-offset-2">
+      <!--<div class="glyphicon glyphicon-home white">　HOME</div>-->
+      <%= link_to "HOME",root_url, class: "glyphicon glyphicon-home white" %>
     </div>
+    <div class="col-md-1">
+      <!--<div class="glyphicon glyphicon-bell white">　BELL</div>-->
+      <%= link_to "BELL",root_url, class: "glyphicon glyphicon-bell white" %>
+    </div>
+    <div class="col-md-1">
+      <%= link_to "LOGOUT", logout_path, class: "glyphicon glyphicon-logout white", method: :delete %>
+    </div>
+  </div>
 </div>
 
 <!--空白-->
 <div class="container-fluid kuhaku"></div>
-
+<h1>アカウント設定</h1>
 <!--左のメニューです（ここに自分の名前やらサムネなど入る予定です）-->
-<div class="container-fluid">
+<div class="center jumbotron">
+  <div class="container-fluid">
     <div class="row">
-        <div class="col-md-2 col-md-offset-2">
-              <!--メニューの背景画像-->
-              <div class="menuimg"><%= image_tag 'menu.png'%></div>
-              <!--サムネイル画像-->
-              <div class="thumbnailimg"> <%=image_tag 'thumbnail.png', :width => '80', :height => '80'%></div>
-              <!--ユーザーの名前-->
-              <div class="username"> ささき</div>
-              <!--ユーザーのID-->
-              <div class="userid">   @sasaki</div>
-         </div>
+      <div class="col-md-2 col-md-offset-2">
+        <!--メニューの背景画像-->
+        <div class="menuimg"><%= image_tag 'menu.png'%></div>
+        <!--サムネイル画像-->
+        <div class="thumbnailimg"><%= picture_for @user %></div>
+        <!--ユーザーの名前-->
+        <div class="username"> <%= current_user.name %></div>
+        <!--ユーザーのID-->
+        <div class="userid">   <%= current_user.user_id %></div>
+      </div>
     </div>
+  </div>
 </div>
+
+
+<%= render 'shared/edit' %>
 

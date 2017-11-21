@@ -1,7 +1,8 @@
 ---
 ja:
   attributes:
-    name: ユーザーID
+    user_id: ユーザーID
+    name: ユーザー名
     email: メールアドレス
     password: パスワード
     password_confirmation: パスワード

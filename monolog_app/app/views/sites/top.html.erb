@@ -1,21 +1,43 @@
 <!--ログインしているときのTop画面-->
 <% if logged_in? %>
 
-  <div class="row">
-    <aside class="col-md-4">
-      <section class="user_info">
-        <%= render 'shared/user_info' %>
-      </section>
-      <section class="micropost_form">
-        <%= render 'shared/micropost_form' %>
-        
-      </section>
-    </aside>
-    <div class="col-md-8">
-      <h3>Micropost Feed</h3>
-      <%= render 'shared/feed' %>
+<!--ヘッダー（上のトップバー、タイムラインと通知を表示します）-->
+<div class="container-fluid topbar">
+    <div class="row">
+        <div class="col-xs-1 col-sm-1 col-sm-offset-2 col-md-1 col-md-offset-2">
+                <div class="glyphicon glyphicon-home white">　HOME</div>
+        </div>
+        <div class="col-xs-1 col-xs-offset-4 col-sm-1  col-md-1 col-md-offset-0 ">
+                <div class="glyphicon glyphicon-bell white">　BELL</div>
+        </div>
     </div>
-  </div>
+</div>
+
+<!--空白-->
+<div class="container-fluid kuhaku"></div>
+
+<!--左のメニューです（ここに自分の名前やらサムネなど入る予定です）-->
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 col-md-offset-2">
+        <section class="user_info">
+          <%= render 'shared/user_info' %>
+        </section>
+      </div>
+      <div class="col-md-4">
+        <section class="micropost_form">
+          <%= render 'shared/micropost_form' %>
+        </section>
+        <%= render 'shared/feed' %>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
 <% else %>
 
    <!--Top画面-->

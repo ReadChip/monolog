@@ -1,14 +1,13 @@
 body
 {
-    background-color:#828282;
+    background-color:#D4C0A8;
 background-image: url("https://www.transparenttextures.com/patterns/fabric-of-squares.png");
 }
 
 
 .topbar
 {
-    background-color:#1C1C1C;
-    background-image: url("https://www.transparenttextures.com/patterns/fabric-of-squares.png");
+    background-color:#605C55;
     height: 47px;
 }
 
@@ -29,6 +28,7 @@ background-image: url("https://www.transparenttextures.com/patterns/fabric-of-sq
 }
 
 
+//ユーザーのプロフィール
 .menuimg
 {
     position:relative;
@@ -38,14 +38,14 @@ background-image: url("https://www.transparenttextures.com/patterns/fabric-of-sq
 {
     position:absolute;
     left:25px;
-    top: 36px;
+    top: 15px;
 }
 
 .username
 {
     position:absolute;
-    left:150px;
-    top: 60px;
+    left:120px;
+    top: 45px;
     font-weight: bold;
     font-size: 20px;
 }
@@ -53,6 +53,20 @@ background-image: url("https://www.transparenttextures.com/patterns/fabric-of-sq
 .userid
 {
     position:absolute;
-    left:150px;
-    top: 90px;
+    left:120px;
+    top: 75px;
 }
+
+.emit
+{
+    position:absolute;
+    left:40px;
+    top: 100px;
+}
+
+//テキストエリア、ボタン下揃え
+.flex-container {
+  display: flex;
+}
+
+

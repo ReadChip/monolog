@@ -1,7 +1,20 @@
-<h1><%= current_user.name %></h1>
-<p>@<%= current_user.user_id %></p>
-<span><%= link_to "view my profile", current_user %></span>
-<span><%= pluralize(current_user.microposts.count, "micropost") %></span>
-<p>a
-<p>a
-<p>a
+
+<!--メニューの背景画像--><!--プロフィール画面に飛ぶ-->
+<%= link_to current_user, target: "menuimg"  do %>
+    <%= image_tag "menu1.png"%>
+<% end %>
+<!--サムネイル画像-->
+<div class="thumbnailimg"><%=image_tag 'thumbnail.png', :width => '80', :height => '80'%></div>
+<!--ユーザーの名前-->
+<div class="username">
+ささき
+</div>
+<!--ユーザーのID-->
+<div class="userid">   @<%= current_user.name %></div>
+
+
+<!--何回つぶやいたか(emit)カウント-->
+<div class="emit">
+    エミット<br>
+    <%= pluralize(current_user.microposts.count, "") %>
+</div>

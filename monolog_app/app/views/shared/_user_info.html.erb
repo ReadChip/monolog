@@ -2,21 +2,21 @@
 <!--メニューの背景画像--><!--プロフィール画面に飛ぶ-->
 
 <div class="menu">
-    <%= link_to current_user, target: "menuimg" do %>
+    <%= link_to users_path, target: "menuimg" do %>
         <!--サムネイル画像-->
         <div class="thumbnailimg"><%= picture_for @user %></div>
     <% end %>
-    <%= link_to current_user, target: "menuimg" do %>
+    <%= link_to users_path, target: "menuimg" do %>
         <!--ユーザーの名前-->
         <div class="username"><%= current_user.name %></div>
     <% end %>
-    <%= link_to current_user, target: "menuimg" do %>
+    <%= link_to users_path, target: "menuimg" do %>
         <!--ユーザーのID-->
         <div class="userid">   @<%= current_user.user_id %></div>
     <% end %>
 
 
-    <%= link_to current_user, target: "menuimg" do %>
+    <%= link_to users_path, target: "menuimg" do %>
     <!--何回つぶやいたか(emit)カウント-->
     <div class="emit">
         エミット<br>

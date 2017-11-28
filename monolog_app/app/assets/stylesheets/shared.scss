@@ -1,0 +1,28 @@
+  $color1 : #112D4E;
+  $color2 : #3F72AF;
+  $color3 : #DBE2EF;
+  $color4 : #1A1A1C;
+
+h1{
+    padding-left:13px;
+}
+
+
+.ul{
+    list-style:none;
+}
+
+
+.lmenu{
+    display: block;
+    padding: 0px;
+    background-color: $color3;
+    padding-top: 10px;
+    padding-left:  10px;
+
+}
+
+.rmenu{
+        background-color: $color3;
+        padding: 20px;
+}

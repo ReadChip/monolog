@@ -2,7 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.body2{
-    background-color:#605C55;
-    padding:100px;
+  $color1 : #112D4E;
+  $color2 : #3F72AF;
+  $color3 : #DBE2EF;
+
+body
+{
+    background-color: $color3;
+    //background-image: url("https://www.transparenttextures.com/patterns/fabric-of-squares.png");
+}
+
+.head
+{
+    height: 47px;
+}
+
+.menu
+{
+    padding-left: 20px;
+}
+
+.white
+{
+    color: $color3;
+    top: 15px;
+}
+
+.kuhaku
+{
+    padding:8px;
+}
+
+.kuhaku2
+{
+    padding:35px;
 }

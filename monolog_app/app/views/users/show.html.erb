@@ -3,7 +3,7 @@
 -->
 
 <!--ヘッダー（上のトップバー、タイムラインと通知を表示します）-->
-<div class="container-fluid topbar">
+<div class="container-fluid head">
   <div class="row">
     <div class="col-md-1 col-md-offset-2">
       <!--<div class="glyphicon glyphicon-home white">　HOME</div>-->
@@ -19,16 +19,19 @@
   </div>
 </div>
 
-<!--空白-->
-<div class="container-fluid kuhaku"></div>
+
+<div class="container-fluid">
+
+</div>
+
+
+
 <h1>アカウント設定</h1>
 <!--左のメニューです（ここに自分の名前やらサムネなど入る予定です）-->
-<div class="center jumbotron">
+<div class="center">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-2 col-md-offset-2">
-        <!--メニューの背景画像-->
-        <div class="menuimg"><%= image_tag 'menu.png'%></div>
         <!--サムネイル画像-->
         <div class="thumbnailimg"><%= picture_for @user %></div>
         <!--ユーザーの名前-->

@@ -8,34 +8,39 @@
 //無理やりCSS
 /* microposts */
 
+  $color1 : #112D4E;
+  $color2 : #3F72AF;
+  $color3 : #DBE2EF;
+  $color4 : #1A1A1C;
+
+
 .microposts {
   list-style: none;
-  padding: 0;
-  li {
-    padding: 10px 0;
-    background-color: #FCFAF2;
-    border-top: 2px solid #D4C0A8;
+  display: block;
+  padding: 0px;
+  word-break: break-all;
+  li{
+    padding: 5px;
+    background-color: $color3;
+    border-top: 2px solid $color2;
   }
   .user {
-    margin-top: 5em;
-    padding-top: 0;
+    position:relative;    //相対位置への配置
+    font-size: 14.5px;
+    font-weight: 600;
+    color: $color4;
+    top:-8px;             //名前を上に
+    margin-left: 2px;
   }
   .content {
+    position:relative;    //相対位置への配置
     display: block;
-    margin-left: 60px;
-    img {
-      display: block;
-      padding: 5px 0;
-    }
+    top:-25px;             //エミットを上に
+    margin-left: 80px;
   }
   .timestamp {
-    display: block;
-    margin-left: 60px;
-  }
-  .gravatar {
-    float: left;
-    margin-right: 10px;
-    margin-top: 5px;
+    position:relative;    //相対位置への配置
+    margin-left: 90px;
   }
 }
 

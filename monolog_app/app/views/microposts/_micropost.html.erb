@@ -1,9 +1,11 @@
 <li id="micropost-<%= micropost.id %>">
-　<%= picture_for @user %>
+　<%= picture_for micropost.user %>
   <span class="user"><%= link_to micropost.user.name, micropost.user, :class => "user" %></span>
   <span class="content">
     <%= micropost.content %>
-    <%= image_tag micropost.picture.url if micropost.picture? %>
+    <%= link_to micropost.picture.url, target: "menuimg" do %>
+    <%= image_tag micropost.picture.url, width: "100", height: "100" if micropost.picture? %>
+    <% end %>
   </span>
 
 <%= micropost.likers.count %>like

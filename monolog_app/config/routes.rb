@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'sites#top'
   get '/index', to: 'users#index'
   get '/all', to: 'users#all_users'
+  get '/edit', to: 'users#edit'
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
   get    '/login',   to: 'sessions#new'

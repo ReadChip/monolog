@@ -3,6 +3,7 @@ class UsersController < ApplicationController
                                         :liking, :likers]
   before_action :correct_user,   only: [:edit, :update, :show]
   before_action :admin_user,     only: [:destroy, :all_users]
+  
 
   def index 
       @user = current_user

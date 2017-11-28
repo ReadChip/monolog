@@ -1,72 +1,48 @@
-body
-{
-    background-color:#D4C0A8;
-background-image: url("https://www.transparenttextures.com/patterns/fabric-of-squares.png");
+  $color1 : #112D4E;
+  $color2 : #3F72AF;
+  $color3 : #DBE2EF;
+  $color4 : #1A1A1C;
+
+body{
+    background-color: $color2; 
 }
 
 
-.topbar
-{
-    background-color:#605C55;
-    height: 47px;
+.menu{
+    display: block;
+    padding: 0px;
+    background-color: $color3;
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-left:  20px;
 }
 
-.menu
-{
-    padding-left: 20px;
+.username{
+        position:relative;    //相対位置への配置
+        font-weight: bold;
+        font-size: 20px;
+        color: $color4;
+        top: -50px;
+        left: 70px;
+        right: 90px;
+}
+.userid{
+        position: relative;
+        color:   $color4;
+        top: -45px;
+        left: 70px;
+
 }
 
-.white
-{
-    color:#DCDCDC;
-    top: 15px;
+.emit{
+        position:relative;
+        color: $color1;
+        top: -30px;
+        left: 10px;
 }
 
-.kuhaku
-{
-    padding:8px;
-}
-
-
-//ユーザーのプロフィール
-.menuimg
-{
-    position:relative;
-}
-
-.thumbnailimg
-{
-    position:absolute;
-    left:25px;
-    top: 15px;
-}
-
-.username
-{
-    position:absolute;
-    left:120px;
-    top: 45px;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.userid
-{
-    position:absolute;
-    left:120px;
-    top: 75px;
-}
-
-.emit
-{
-    position:absolute;
-    left:40px;
-    top: 100px;
-}
 
 //テキストエリア、ボタン下揃え
 .flex-container {
   display: flex;
 }
-
-

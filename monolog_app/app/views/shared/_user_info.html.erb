@@ -1,20 +1,26 @@
 
 <!--メニューの背景画像--><!--プロフィール画面に飛ぶ-->
-<%= link_to current_user, target: "menuimg"  do %>
-    <%= image_tag "menu1.png"%>
-<% end %>
-<!--サムネイル画像-->
-<div class="thumbnailimg"><%= picture_for @user %></div>
-<!--ユーザーの名前-->
-<div class="username"><%= current_user.name %></div>
-<!--ユーザーのID-->
-<div class="userid">   @<%= current_user.user_id %></div>
-<!--ユーザープロフィール-->
-<div class="profile">   <%= current_user.profile %></div>
+
+<div class="menu">
+    <%= link_to current_user, target: "menuimg" do %>
+        <!--サムネイル画像-->
+        <div class="thumbnailimg"><%= picture_for @user %></div>
+    <% end %>
+    <%= link_to current_user, target: "menuimg" do %>
+        <!--ユーザーの名前-->
+        <div class="username"><%= current_user.name %></div>
+    <% end %>
+    <%= link_to current_user, target: "menuimg" do %>
+        <!--ユーザーのID-->
+        <div class="userid">   @<%= current_user.user_id %></div>
+    <% end %>
 
 
-<!--何回つぶやいたか(emit)カウント-->
-<div class="emit">
-    エミット<br>
-    <%= pluralize(current_user.microposts.count, "") %>
+    <%= link_to current_user, target: "menuimg" do %>
+    <!--何回つぶやいたか(emit)カウント-->
+    <div class="emit">
+        エミット<br>
+        <%= pluralize(current_user.microposts.count, "") %>
+    </div>
+    <% end %>
 </div>

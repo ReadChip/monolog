@@ -1,48 +1,61 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+  $color1 : #112D4E;
+  $color2 : #3F72AF;
+  $color3 : #DBE2EF;
+
+
 .kuhaku{
     padding:50px;
 }
+
 .kuhaku2{
     padding:5px;
 }
 
+.kuhaku3
+{
+    padding:82.5px;
+}
+
 .head{
-    background-color: #605C55; 
+    background-color: $color1; 
 }
 
 .main{
-    background-color: #D4C0A8;
+    background-color: $color2;
 }
-
 
 .body2{
-    background-color:#605C55;
+    background-color: $color1;
 }
 
-.fotter{
-     background-color: #605C55;
-         padding:50px;
+.footer{
+    background-color: $color1;
+    padding: 323.5px;
 }
+
+
 
 p{
-    color:#fff;
+    color: $color3;
     font-size: 15px;
 }
 
 h1{
-    color:#fff;
+    color: $color3;
     font-size:250%;
 
 }
 
 h2{
-    color:#fff;
+    color: $color3;
 }
 
 h3{
-    color:#fff;
+    color:$color3;
 }
 
 
@@ -50,19 +63,18 @@ h3{
 .btn-black {
     border-radius: 0;
     background-color: #000;
-    color: #fff;
+    color: $color3;
     font-family: 'Avenir', serif;
 }
+
 .btn-black:hover {
-     background-color: #fff;
+     background-color: $color3;
      color: #000;
 }
 
 .focus{
-    background: #EFEEEE;
+    background: $color3;
 }
-
-
 
 
 .slick-slide {
@@ -71,3 +83,108 @@ h3{
   background: white;
 }
 
+
+
+
+/* navbar 全体の背景色とボーダーカラー */
+.navbar-default {
+background-color: $color1;
+border-color: $color1;
+border-radius: 0;
+}
+/* navbar テキストカラー */
+.navbar-default .navbar-nav > li > a {
+color: $color3;
+}
+/* navbar hover,focus時のテキストカラー */
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+color: #26534c;
+background-color: transparent;
+}
+/* navbar active設定時のカラー */
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
+color: #26534c;
+background-color: #c3ede7;
+}
+/* navbar ドロップダウン(親)のカラー */
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a:hover {
+color: $color1;
+background-color: #c3ede7;
+}
+/* navbar ドロップダウン(子)のボックスカラー */
+.dropdown-menu {
+background-color: $color1;
+border: 1px solid $color1;
+border: 1px solid $color1(0, 0, 0, .15);
+-webkit-box-shadow: 0 6px 12px rgba(94, 136, 129, 0.35);
+box-shadow: 0 6px 12px rgba(94, 136, 129, 0.35);
+}
+/* navbar ドロップダウン(子)テキストカラー */
+.dropdown-menu>li>a {
+color: $color3;
+}
+/* navbar ドロップダウン(子)focus,hover時のカラー */
+.dropdown-menu>li>a:focus,
+.dropdown-menu>li>a:hover {
+color: #26534c;
+background-color: #c3ede7;
+}
+/* navbar ドロップダウン(子)内の区切り線(class=”divider”)のカラー */
+.dropdown-menu .divider {
+background-color: $color1;
+}
+/* navbar 画面サイズ767px以下の時のカラー */
+@media (max-width:767px) {
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+color: $color3;
+}
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:focus,
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
+color: #26534c;
+background-color: transparent;
+}
+/* ドロップダウンactive設定時のカラー */
+.navbar-default .navbar-nav .open .dropdown-menu>.active>a,
+.navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus,
+.navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover {
+color: #ffb163;
+background-color: #d4ede9;
+}
+}
+/* navbar ハンバーガー四角枠 */
+.navbar-default .navbar-toggle {
+border-color: $color3;
+}
+/* navbar ハンバーガー三本線 */
+.navbar-default .navbar-toggle .icon-bar {
+background-color: $color3;
+}
+/* navbar ハンバーガーボタン,タップとホバーした時の背景色 */
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+background-color: $color3;
+}
+/* navbar ハンバーガーボタン,タップとホバーした時の四角枠 */
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+border-color: $color1;
+}
+/* navbar ハンバーガーボタン,タップとホバーした時の三本線 */
+.navbar-default .navbar-toggle:focus > .icon-bar,
+.navbar-default .navbar-toggle:hover > .icon-bar {
+background-color: $color1;
+}
+/* navbar Brandのカラー */
+.navbar-default .navbar-brand {
+color: #ff5555;
+}
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:hover {
+color: #ff5555;
+background-color: transparent;
+}

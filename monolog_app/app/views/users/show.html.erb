@@ -11,13 +11,15 @@
     </div>
     <div class="col-md-1">
       <!--<div class="glyphicon glyphicon-bell white">　BELL</div>-->
-      <%= link_to "BELL",root_url, class: "glyphicon glyphicon-bell white" %>
+      <%= link_to "BELL",current_user, class: "glyphicon glyphicon-bell white" %>
     </div>
     <div class="col-md-1">
       <%= link_to "LOGOUT", logout_path, class: "glyphicon glyphicon-logout white", method: :delete %>
     </div>
   </div>
 </div>
+
+<%= render 'shared/flash' %>
 
 <!--空白-->
 <div class="container-fluid kuhaku"></div>
@@ -39,6 +41,9 @@
     </div>
   </div>
 </div>
+<section class="stats">
+        <%= render 'shared/liking_stats' %>
+</section>
 
 
 <%= render 'shared/edit' %>

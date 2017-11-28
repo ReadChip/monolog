@@ -1,0 +1,7 @@
+  <div id="like_form">
+  <% if current_user.liking?(@user) %>
+    <%= render 'users/unlike' %>
+  <% else %>
+    <%= render 'users/like' %>
+  <% end %>
+  </div>

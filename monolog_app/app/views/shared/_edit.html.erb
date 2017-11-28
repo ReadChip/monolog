@@ -18,7 +18,10 @@
       <%= f.label :password_confirmation, "パスワード再入力" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+      <%= f.label :profile %>
+      <%= f.text_area :profile, class: 'form-control', size: "80x3" %>
+
+      プロフィール画像の変更<%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
 
       <%= f.submit "変更", class: "btn btn-primary" %>
     <% end %>

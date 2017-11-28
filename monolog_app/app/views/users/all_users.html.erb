@@ -1,0 +1,15 @@
+<%= render 'shared/flash' %>
+
+<% if logged_in? %>
+    #ログイン中のとき
+    <li><%= link_to "ユーザ一覧", '#' %></li>
+    <li><%= link_to "プロフィール", current_user %></li>
+    <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+<% else %>
+    #ログインしてないとき
+    <li><%= link_to "ログイン", login_path %></li>
+<% end %>
+
+<ul class="users">
+  <%= render @users %>
+</ul>

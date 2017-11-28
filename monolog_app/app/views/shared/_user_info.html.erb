@@ -4,13 +4,13 @@
     <%= image_tag "menu1.png"%>
 <% end %>
 <!--サムネイル画像-->
-<div class="thumbnailimg"><%=image_tag 'thumbnail.png', :width => '80', :height => '80'%></div>
+<div class="thumbnailimg"><%= picture_for @user %></div>
 <!--ユーザーの名前-->
-<div class="username">
-ささき
-</div>
+<div class="username"><%= current_user.name %></div>
 <!--ユーザーのID-->
-<div class="userid">   @<%= current_user.name %></div>
+<div class="userid">   @<%= current_user.user_id %></div>
+<!--ユーザープロフィール-->
+<div class="profile">   <%= current_user.profile %></div>
 
 
 <!--何回つぶやいたか(emit)カウント-->

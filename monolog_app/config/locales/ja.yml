@@ -6,6 +6,7 @@ ja:
     email: メールアドレス
     password: パスワード
     password_confirmation: パスワード
+    profile: プロフィール
   activerecord:
     errors:
       messages:

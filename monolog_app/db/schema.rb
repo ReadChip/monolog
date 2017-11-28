@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121012540) do
+ActiveRecord::Schema.define(version: 20171124005240) do
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "liker_id"
+    t.integer "liked_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["liked_id"], name: "index_likes_on_liked_id"
+    t.index ["liker_id", "liked_id"], name: "index_likes_on_liker_id_and_liked_id", unique: true
+    t.index ["liker_id"], name: "index_likes_on_liker_id"
+  end
 
   create_table "microposts", force: :cascade do |t|
     t.text "content"
@@ -35,6 +45,7 @@ ActiveRecord::Schema.define(version: 20171121012540) do
     t.boolean "admin", default: false
     t.string "name"
     t.string "picture"
+    t.string "profile"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

@@ -1,5 +1,11 @@
 class User < ApplicationRecord
   has_many :microposts, dependent: :destroy
+  has_many :active_likes, class_name:  "Like",
+                          foreign_key: "liker_id",
+                          dependent:   :destroy
+  
+  has_many :liking, through: :active_likes, source: :liked
+
   attr_accessor :remember_token, :activation_token
   before_save   :downcase_email
   before_create :create_activation_digest
@@ -10,6 +16,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  validates :profile, presence: true, length: { maximum: 150 },allow_blank: true
   mount_uploader :picture, PictureUploader
   validate  :picture_size
 
@@ -55,7 +62,28 @@ class User < ApplicationRecord
   end
 
   def feed
+    following_ids = "SELECT user_id FROM microposts"
+    Micropost.where("user_id IN (#{following_ids})
+                     OR user_id = :user_id", user_id: id)
+  end
+
+  def myfeed
     Micropost.where("user_id = ?", id)
+  end
+
+  # マイクロポストをライクする
+  def like(other_user)
+    active_likes.create(liker_id: other_user.id)
+  end
+
+  # マイクロポストのライクを解除する
+  def unlike(other_user)
+    active_likes.find_by(liker_id: other_user.id).destroy
+  end
+
+  # 現在のユーザーがライクしてたらtrueを返す
+  def liking?(other_user)
+    liking.include?(other_user)
   end
 
   private

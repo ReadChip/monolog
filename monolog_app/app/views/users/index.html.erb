@@ -1,15 +1,31 @@
+<div class="container-fluid topbar">
+  <div class="row">
+    <div class="col-md-1 col-md-offset-2">
+      <!--<div class="glyphicon glyphicon-home white">　HOME</div>-->
+      <%= link_to "HOME",root_url, class: "glyphicon glyphicon-home white" %>
+    </div>
+    <div class="col-md-1">
+      <!--<div class="glyphicon glyphicon-bell white">　BELL</div>-->
+      <%= link_to "BELL",current_user, class: "glyphicon glyphicon-bell white" %>
+    </div>
+    <div class="col-md-1">
+      <%= link_to "LOGOUT", logout_path, class: "glyphicon glyphicon-logout white", method: :delete %>
+    </div>
+  </div>
+</div>
 
-
-<% if logged_in? %>
-    #ログイン中のとき
-    <li><%= link_to "ユーザ一覧", '#' %></li>
-    <li><%= link_to "プロフィール", current_user %></li>
-    <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
-<% else %>
-    #ログインしてないとき
-    <li><%= link_to "ログイン", login_path %></li>
-<% end %>
-
-<ul class="users">
-  <%= render @users %>
-</ul>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 col-md-offset-2">
+        <section class="user_info">
+          <%= render 'shared/user_info' %>
+        </section>
+      </div>
+      <div class="col-md-4">
+        <section class="micropost_form">
+          <%= render 'shared/micropost_form' %>
+        </section>
+        <%= render 'shared/myfeed' %>
+      </div>
+    </div>
+</div>

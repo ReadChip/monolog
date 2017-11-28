@@ -1,33 +1,34 @@
-<!--= @user.name  = @user.email 
-/li %= link_to "ホーム", root_url
--->
-
 <!--ヘッダー（上のトップバー、タイムラインと通知を表示します）-->
-<div class="container-fluid head">
-  <div class="row">
-    <div class="col-md-1 col-md-offset-2">
-      <!--<div class="glyphicon glyphicon-home white">　HOME</div>-->
-      <%= link_to "HOME",root_url, class: "glyphicon glyphicon-home white" %>
-    </div>
-    <div class="col-md-1">
-      <!--<div class="glyphicon glyphicon-bell white">　BELL</div>-->
-      <%= link_to "BELL",root_url, class: "glyphicon glyphicon-bell white" %>
-    </div>
-    <div class="col-md-1">
-      <%= link_to "LOGOUT", logout_path, class: "glyphicon glyphicon-logout white", method: :delete %>
+<nav class="navbar navbar-default">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
+      <span class="sr-only">メニュー</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+ 
+  <div class="container">
+    <div class="row">
+        <div id="gnavi" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><%= link_to " HOME",root_url, class: "glyphicon glyphicon-home" %></li>
+            <li><%= link_to " BELL",root_url, class: "glyphicon glyphicon-bell" %></li>
+            <li><%= link_to "LOGOUT", logout_path, class: "glyphicon glyphicon-logout", method: :delete %></li>
+          </ul>
+      </div>
     </div>
   </div>
-</div>
+</nav>
 
+<%= render 'shared/flash' %>
 
-
-
-<h1>アカウント設定</h1>
 <!--左のメニューです（ここに自分の名前やらサムネなど入る予定です）-->
-<div class="center">
-  <div class="container-fluid">
+  <div class="container">
+          <h1>アカウント設定</h1>
     <div class="row">
-      <div class="col-md-2 col-md-offset-2">
+      <div class="col-xs-10 col-xs-offset-1  col-sm-4  col-md-3  col-lg-3 lmenu">
         <!--サムネイル画像-->
         <div class="thumbnailimg"><%= picture_for @user %></div>
         <!--ユーザーの名前-->
@@ -35,10 +36,10 @@
         <!--ユーザーのID-->
         <div class="userid">   <%= current_user.user_id %></div>
       </div>
+      <div class="col-xs-10 col-xs-offset-1  col-sm-6 col-sm-offset-1   col-md-6 col-md-offset-1  col-lg-6 col-lg-offset-1 rmenu">
+        <%= render 'shared/edit' %>
+      </div>
     </div>
   </div>
-</div>
 
-
-<%= render 'shared/edit' %>
 

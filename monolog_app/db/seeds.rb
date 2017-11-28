@@ -7,3 +7,13 @@ User.create!(user_id:  "Example User",
              admin:     true,
              activated: true,
              activated_at: Time.zone.now)
+
+User.create!(user_id:  "ojisan",
+             name: "マルメターノおじさん",
+             email: "sausage@marumetano.ojisan",
+             password:              "marumetano",
+             password_confirmation: "marumetano",
+             picture: "marumetano.jpeg",
+             admin:     true,
+             activated: true,
+             activated_at: Time.zone.now)

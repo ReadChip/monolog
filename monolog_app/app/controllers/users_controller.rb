@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    render layout: 'capplication'
   end
 
   def create
@@ -32,7 +33,7 @@ class UsersController < ApplicationController
       flash[:info] = @user.email + "に確認メールを送りました。"
       redirect_to root_url
     else
-      render 'new'
+      render 'new', layout: 'capplication'
     end
   end
 

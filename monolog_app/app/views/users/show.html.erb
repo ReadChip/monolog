@@ -1,29 +1,4 @@
-<!--ヘッダー（上のトップバー、タイムラインと通知を表示します）-->
-<nav class="navbar navbar-default">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
-      <span class="sr-only">メニュー</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-  </div>
- 
-  <div class="container">
-    <div class="row">
-        <div id="gnavi" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><%= link_to " HOME",root_url, class: "glyphicon glyphicon-home" %></li>
-            <li><%= link_to " BELL",root_url, class: "glyphicon glyphicon-bell" %></li>
-            <li><%= link_to "LOGOUT", logout_path, class: "glyphicon glyphicon-logout", method: :delete %></li>
-          </ul>
-      </div>
-    </div>
-  </div>
-</nav>
-
 <%= render 'shared/flash' %>
-
 <!--左のメニューです（ここに自分の名前やらサムネなど入る予定です）-->
   <div class="container">
           <h1>アカウント設定</h1>

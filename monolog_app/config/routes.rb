@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       get :liking, :likers
     end
   end
-  resources :users
+  resources :users, param: :user_id
   resources :account_activations, only: [:edit]
   resources :microposts,          only: [:create, :destroy]
   resources :likes,       only: [:create, :destroy]

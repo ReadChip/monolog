@@ -26,7 +26,8 @@ gem 'jquery-rails'
 gem 'jquery-slick-rails'
 # slim(erbで書くとコードが長くて見づらいのでslimを使います。拡張子はerb→slim)
 gem 'slim'
-gem 'carrierwave',             '1.1.0'
+gem 'carrierwave'
+
 
 gem 'coffee-script-source', '1.8.0'
 gem 'slim'

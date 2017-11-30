@@ -8,7 +8,7 @@ class MicropostsController < ApplicationController
       redirect_to root_url
     else
       @feed_items = []
-      redirect_to root_url
+      redirect_to root_url, alert: '投稿に失敗しました'
     end
   end
 

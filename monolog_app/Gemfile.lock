@@ -196,7 +196,7 @@ DEPENDENCIES
   bootstrap-will_paginate (= 1.0.0)
   byebug
   capybara (~> 2.13)
-  carrierwave (= 1.1.0)
+  carrierwave
   coffee-rails (~> 4.2)
   coffee-script-source (= 1.8.0)
   jbuilder (~> 2.5)

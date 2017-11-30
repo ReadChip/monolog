@@ -1,6 +1,6 @@
 <%= form_for(@micropost) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+  <%= f.file_field :picture, accept: 'image/jpg,image/jpeg,image/png,image/gif' %>
   <div class="flex-container">
     <%= f.text_area :content, placeholder: "エミットする？", :size =>"85x4" %>
     <%= f.submit "Emit", class: "btn btn-warning" %>

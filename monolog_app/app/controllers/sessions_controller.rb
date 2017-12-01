@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    render layout: 'capplication'
   end
 
   def create
@@ -18,7 +19,7 @@ class SessionsController < ApplicationController
       end
     else
       flash.now[:danger] = 'ユーザーIDまたはパスワードが間違っています。'
-      render 'new'
+      render 'new', layout: 'capplication'
     end
   end
 

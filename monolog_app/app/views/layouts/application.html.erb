@@ -6,6 +6,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--スマホ対応-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   </head>
 
   <body>
@@ -27,8 +29,8 @@
               <ul class="nav navbar-nav">
                 <li><%= link_to " HOME",root_url, class: "glyphicon glyphicon-home" %></li>
                 <li><%= link_to " BELL",root_url, class: "glyphicon glyphicon-bell" %></li>
-                <li><%= link_to "EDIT", users_path + "/" + current_user.user_id, class: "glyphicon glyphicon-eidt" %></li> 
-                <li><%= link_to " LOGOUT", logout_path, class: "glyphicon glyphicon-logout", method: :delete %></li>
+                <li><%= link_to " EDIT", users_path + "/" + current_user.user_id, class: "glyphicon glyphicon-wrench" %></li> 
+                <li><%= link_to " LOGOUT", logout_path, class: "glyphicon glyphicon-log-out", method: :delete %></li>
               </ul>
           </div>
         </div>

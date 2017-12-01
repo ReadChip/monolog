@@ -1,0 +1,17 @@
+<center><h1>ここにホーム画面実装予定</h1></center>
+ 
+<div class="container hmenu">
+    <div class="row">
+       <div class="col-lg-2">
+         <%= image_tag(current_user.picture, alt: current_user.name, width: '160', height: '160') %>
+       </div>
+       <div class="col-lg-10">
+         <div class="husername">*<%= current_user.name %></div>
+       </div>
+       <div class="col-lg-12">
+            <div><%= current_user.profile %></div>
+       </div>
+    </div>
+</div>
+
+        

@@ -25,6 +25,13 @@ body{
         top: -50px;
         left: 70px;
         right: 90px;
+
+        width: 130px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis; /* Opera9,10対応 */
+
 }
 .userid{
         position: relative;
@@ -45,4 +52,20 @@ body{
 //テキストエリア、ボタン下揃え
 .flex-container {
   display: flex;
+}
+
+
+//ホーム画面 
+.hmenu{
+        background-color: $color3;
+        display: block;
+        padding: 0px;
+}
+
+.husername{
+        position:relative;    //相対位置への配置
+        font-weight: bold;
+        font-size: 40px;
+        color: $color4;
+ 
 }

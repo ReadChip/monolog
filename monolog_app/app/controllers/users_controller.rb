@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(user_id: params[:user_id])
     @microposts = @user.microposts
 
   end
@@ -28,44 +28,48 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      @user.send_activation_email
-      flash[:info] = @user.email + "に確認メールを送りました。"
-      redirect_to root_url
+    unless params[:cancel]
+      if @user.save
+        @user.send_activation_email
+        flash[:info] = @user.email + "に確認メールを送りました。"
+        redirect_to root_url
+      else
+        render 'new', layout: 'capplication'
+      end
     else
-      render 'new', layout: 'capplication'
+      redirect_to root_url, layout: 'capplication'
     end
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by(user_id: params[:user_id])
   end
 
   def update
     if @user.update_attributes(user_params)
       flash[:success] = "ユーザー情報の更新に成功しました。"
-      redirect_to @user
+      redirect_to @user.user_id
     else
       render 'show'
     end
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    User.find_by(user_id: params[:user_id]).destroy
     flash[:success] = "User deleted"
     redirect_to users_url
   end
 
   def liking
     @title = "Liking"
-    @user  = User.find(params[:id])
+    @user  = User.find_by(user_id: params[:user_id])
     @users = @user.liking.paginate(page: params[:page])
     render 'show_like'
   end
 
   def likers
     @title = "Likers"
-    @user  = User.find(params[:id])
+    @user  = User.find_by(user_id: params[:user_id])
     @users = @user.likers.paginate(page: params[:page])
     render 'show_like'
   end
@@ -82,7 +86,7 @@ class UsersController < ApplicationController
 
     # 正しいユーザーかどうか確認
     def correct_user
-      @user = User.find(params[:id])
+      @user = User.find_by(user_id: params[:user_id])
       redirect_to(root_url) unless current_user?(@user)
     end
 

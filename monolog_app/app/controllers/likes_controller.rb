@@ -8,7 +8,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    user = Like.find(params[:id]).liked
+    user = Like.find_by(user_id: params[:user_id]).liked
     current_user.unlike(user)
     redirect_to user
   end

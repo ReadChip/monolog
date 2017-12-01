@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'sites#top'
+  resources :users, param: :user_id
   get '/index', to: 'users#index'
   get '/all', to: 'users#all_users'
   get '/edit', to: 'users#edit'
@@ -9,11 +10,11 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   resources :users do
-    member do
+    collection do
       get :liking, :likers
     end
   end
-  resources :users, param: :user_id
+
   resources :account_activations, only: [:edit]
   resources :microposts,          only: [:create, :destroy]
   resources :likes,       only: [:create, :destroy]

@@ -60,12 +60,61 @@ body{
         background-color: $color3;
         display: block;
         padding: 0px;
+        padding-top: 30px;
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-bottom: 50px;
 }
+
+.name{
+        padding:0px;
+        padding-bottom:70px;
+}
+
 
 .husername{
         position:relative;    //相対位置への配置
-        font-weight: bold;
-        font-size: 40px;
+        font-weight:bold; 
+        font-size:20px;
         color: $color4;
- 
+}
+
+.huserprofile{
+        position:relative;    //相対位置への配置
+        padding: 0px;
+        font-size:20px;
+        color: $color4;
+}
+
+.glyphicon.glyphicon-user{
+        font-size:22px;
+}
+
+.glyphicon.glyphicon-comment{
+        font-size:22px;
+}
+
+
+.hemit{
+        margin-top:70px;
+}
+
+.tab{
+        display: block;
+        position: absolute;
+        margin:0px;
+        margin-top:-32px;
+        margin-left:-15px;
+        margin-right:1100px;
+
+        padding:0px;
+        padding-top:3px;
+        padding-right:3px;
+        padding-left:3px;
+        padding-bottom:3px;
+
+        background-color:$color3;
+
+        font-weight:bold; 
+        font-size:20px;
 }

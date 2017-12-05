@@ -64,9 +64,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find_by(user_id: params[:user_id]).destroy
+    User.find_by(id: params[:user_id]).destroy
     flash[:success] = "User deleted"
-    redirect_to users_url
+    redirect_to all_path
   end
 
   def liking

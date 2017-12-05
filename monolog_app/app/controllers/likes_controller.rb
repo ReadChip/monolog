@@ -4,12 +4,18 @@ class LikesController < ApplicationController
   def create
     user = User.find(params[:liked_id])
     current_user.like(user)
-    redirect_to root_url
+    respond_to do |format|
+      format.html { redirect_to @user }
+      format.js
+    end
   end
 
   def destroy
     user = Like.find_by(user_id: params[:user_id]).liked
     current_user.unlike(user)
-    redirect_to user
+    respond_to do |format|
+      format.html { redirect_to @user }
+      format.js
+    end
   end
 end

@@ -2,7 +2,12 @@
     <div class="row">
     
        <div class="col-xs-offset-2  col-sm-3 col-sm-offset-0   col-lg-3 col-lg-offset-0">
+       <% if current_user.picture? %>
          <%= image_tag(current_user.picture, alt: current_user.name, width: '160', height: '160') %>
+       <% else %>
+         <%= image_tag("top.png", alt: current_user.name, width: '160', height: '160') %>
+       <% end %>
+
        </div>
 
        <div class="col-sm-9  col-lg-9">

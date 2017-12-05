@@ -25,6 +25,13 @@ body{
         top: -50px;
         left: 70px;
         right: 90px;
+
+        width: 130px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis; /* Opera9,10対応 */
+
 }
 .userid{
         position: relative;
@@ -45,4 +52,72 @@ body{
 //テキストエリア、ボタン下揃え
 .flex-container {
   display: flex;
+}
+
+
+//ホーム画面 
+.hmenu{
+        background-color: $color3;
+        display: block;
+        padding: 0px;
+        padding-top: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 50px;
+}
+
+.name{
+        padding:0px;
+        padding-top:10px;
+        padding-bottom:70px;
+}
+
+
+.husername{
+        position:relative;    //相対位置への配置
+        font-weight:bold; 
+        font-size:20px;
+        color: $color4;
+}
+
+.huserprofile{
+        position:relative;    //相対位置への配置
+        padding: 0px;
+        font-size:20px;
+        color: $color4;
+}
+
+.glyphicon.glyphicon-user{
+        font-size:22px;
+}
+
+.glyphicon.glyphicon-comment{
+        font-size:22px;
+}
+
+
+.hemit{
+        margin-top:70px;
+}
+
+.tab{
+        display: block;
+        position: absolute;
+        margin:0px;
+        margin-top:-35px;
+        margin-left:-15px;
+        margin-right:1100px;
+
+        padding:0px;
+        padding-top:3px;
+        padding-right:3px;
+        padding-left:3px;
+        padding-bottom:3px;
+
+        white-space: nowrap;
+
+        background-color:$color3;
+
+        font-weight:bold; 
+        font-size:20px;
 }

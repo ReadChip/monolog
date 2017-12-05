@@ -12,8 +12,6 @@
           </section>
         </div>
 
-
-
         <div class="col-sm-8  col-md-8  col-lg-7">
           <section class="micropost_form">
             <%= render 'shared/micropost_form' %>
@@ -25,17 +23,6 @@
 
 </div>
 <% else %>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Monolog</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-    <div id="wrapper">
       <!--Top画面-->
         <div class="container-fluid head">
 
@@ -143,6 +130,4 @@
               <div class="kuhaku3"></div>
             </div>
         </div>
-    </body>
-</html>
 <% end %>

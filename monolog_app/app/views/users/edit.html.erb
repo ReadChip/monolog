@@ -1,25 +1,20 @@
-<h1>Update your profile</h1>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-
-      <%= f.label :user_id %>
-      <%= f.text_field :user_id, class: 'form-control' %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-      <%= f.submit "Save changes", class: "btn btn-primary" %>
-    <% end %>
-
+<%= render 'shared/flash' %>
+<!--左のメニューです（ここに自分の名前やらサムネなど入る予定です）-->
+  <div class="container">
+          <h1>アカウント設定</h1>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1  col-sm-4  col-md-3  col-lg-3 lmenu">
+        <!--サムネイル画像-->
+        <div class="thumbnailimg"><%= picture_for @user %></div>
+        <!--ユーザーの名前-->
+        <div class="username"> <%= current_user.name %></div>
+        <!--ユーザーのID-->
+        <div class="userid">   @<%= current_user.user_id %></div>
+      </div>
+      <div class="col-xs-10 col-xs-offset-1  col-sm-6 col-sm-offset-1   col-md-6 col-md-offset-1  col-lg-6 col-lg-offset-1 rmenu">
+        <%= render 'shared/edit' %>
+      </div>
     </div>
   </div>
-</div>
+
+

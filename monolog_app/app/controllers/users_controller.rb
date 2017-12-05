@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
+  before_action :logged_in_user, only: [:index, :update, :destroy,:show,
                                         :liking, :likers]
-  before_action :correct_user,   only: [:edit, :update, :show]
+#  before_action :correct_user,   only: [:edit]
   before_action :admin_user,     only: [:destroy, :all_users]
+  before_action :link_only,     only: [:new, :create, :update, :destroy,
+                                      :liking, :likers,:show]
   
 
   def index 
@@ -17,8 +19,18 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(user_id: params[:user_id])
-    @microposts = @user.microposts
+    if current_user?(@user)
+      redirect_to(users_path)
+    else
+      @user = current_user
+      @micropost  = current_user.microposts.build
+      @feed_items = current_user.userfeed  
+    end
+  end
 
+  def edit
+    @user = User.find_by(id: current_user)
+    @microposts = @user.microposts
   end
 
   def new
@@ -41,16 +53,13 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-    @user = User.find_by(user_id: params[:user_id])
-  end
-
   def update
+    @user = User.find_by(id: current_user)
     if @user.update_attributes(user_params)
       flash[:success] = "ユーザー情報の更新に成功しました。"
-      redirect_to @user.user_id
+      redirect_to edit_path
     else
-      render 'show'
+      render edit_path
     end
   end
 
@@ -93,5 +102,10 @@ class UsersController < ApplicationController
     # 管理者かどうか確認
     def admin_user
       redirect_to(root_url) unless current_user.admin?
+    end
+
+    # urlの直打ち対策
+    def link_only
+      redirect_to(root_url) if request.referer.nil?
     end
 end

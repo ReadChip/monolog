@@ -72,9 +72,15 @@ class User < ApplicationRecord
     Micropost.where("user_id = ?", id)
   end
 
+  def userfeed
+    following_ids = "SELECT user_id FROM microposts"
+    Micropost.where("user_id IN (#{following_ids})
+                     OR user_id = :user_id", user_id: id)
+  end
+
   # マイクロポストをライクする
   def like(other_user)
-    active_likes.create(liker_id: other_user.id)
+    active_likes.create(liker_id: "1")
   end
 
   # マイクロポストのライクを解除する
@@ -88,6 +94,7 @@ class User < ApplicationRecord
   end
 
   private
+
 
     # メールアドレスをすべて小文字にする
     def downcase_email

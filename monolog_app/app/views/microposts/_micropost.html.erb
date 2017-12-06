@@ -19,6 +19,7 @@
       <%= link_to "delete", micropost, method: :delete,
                                        data: { confirm: "本当に削除しますか？" } %>
       <% else %>
+      <% @micropost = micropost %>
       <%= render 'users/like_form' if logged_in? %>
     <% end %>
   </span>

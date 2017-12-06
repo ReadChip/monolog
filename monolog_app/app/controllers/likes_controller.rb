@@ -2,20 +2,22 @@ class LikesController < ApplicationController
   before_action :logged_in_user
 
   def create
-    user = User.find(params[:liked_id])
-    current_user.like(user)
-    respond_to do |format|
-      format.html { redirect_to @user }
+    @micro = Micropost.find(params[:liked_id])
+    current_user.like(@micro)
+    redirect_to root_url
+/#    respond_to do |format|
+      format.html { redirect_to root_url }
       format.js
-    end
+    end#/
   end
 
   def destroy
-    user = Like.find_by(user_id: params[:user_id]).liked
-    current_user.unlike(user)
-    respond_to do |format|
-      format.html { redirect_to @user }
+    @user = Like.find_by(liker_id: current_user,liked_id: params[:liked_id])
+    current_user.unlike(@user)
+    redirect_to root_url
+/#    respond_to do |format|
+      format.html { redirect_to root_url }
       format.js
-    end
+    end#/
   end
 end

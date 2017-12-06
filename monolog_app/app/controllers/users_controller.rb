@@ -59,7 +59,8 @@ class UsersController < ApplicationController
       flash[:success] = "ユーザー情報の更新に成功しました。"
       redirect_to edit_path
     else
-      render edit_path
+      
+      redirect_to edit_path
     end
   end
 

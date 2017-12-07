@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     else
       @user = current_user
       @micropost  = current_user.microposts.build
-      @feed_items = current_user.userfeed  
+      @feed_items = current_user.userfeed
     end
   end
 
@@ -59,14 +59,15 @@ class UsersController < ApplicationController
       flash[:success] = "ユーザー情報の更新に成功しました。"
       redirect_to edit_path
     else
-      render edit_path
+      
+      redirect_to edit_path
     end
   end
 
   def destroy
-    User.find_by(user_id: params[:user_id]).destroy
+    User.find_by(id: params[:user_id]).destroy
     flash[:success] = "User deleted"
-    redirect_to users_url
+    redirect_to all_path
   end
 
   def liking

@@ -9,7 +9,10 @@ class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token
   before_save   :downcase_email
   before_create :create_activation_digest
-  validates :user_id, presence: true, length: { maximum: 50 }, uniqueness: true
+  VALID_userid_REGEX = /\A[a-z\d\-.]+\z/i
+  validates :user_id, presence: true, length:     { minimum: 3 , maximum: 20 },
+                                      format:     { with: VALID_userid_REGEX },
+                                      uniqueness: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence:   true, length: { maximum: 255 },
                     format:     { with: VALID_EMAIL_REGEX },
@@ -80,12 +83,12 @@ class User < ApplicationRecord
 
   # マイクロポストをライクする
   def like(other_user)
-    active_likes.create(liker_id: "1")
+    active_likes.create!(liked_id: other_user.id)
   end
 
   # マイクロポストのライクを解除する
   def unlike(other_user)
-    active_likes.find_by(liker_id: other_user.id).destroy
+    active_likes.find(other_user.id).destroy
   end
 
   # 現在のユーザーがライクしてたらtrueを返す

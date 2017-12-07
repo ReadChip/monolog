@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 20171124005240) do
     t.datetime "activated_at"
     t.string "remember_digest"
     t.boolean "admin", default: false
-    t.string "name"
-    t.string "picture"
-    t.string "profile"
+    t.string "name", default: "名無し"
+    t.string "picture", default: "top.png"
+    t.string "profile", default: "なし"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

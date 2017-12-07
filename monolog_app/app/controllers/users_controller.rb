@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     else
       @user = current_user
       @micropost  = current_user.microposts.build
-      @feed_items = current_user.userfeed  
+      @feed_items = current_user.userfeed
     end
   end
 
@@ -59,7 +59,8 @@ class UsersController < ApplicationController
       flash[:success] = "ユーザー情報の更新に成功しました。"
       redirect_to edit_path
     else
-      render edit_path
+      
+      redirect_to edit_path
     end
   end
 

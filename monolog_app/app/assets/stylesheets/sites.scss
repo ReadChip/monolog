@@ -14,8 +14,31 @@ body
 
 .head
 {
-    height: 47px;
+   // height: 47px;
+    .container{
+        width: auto;
+    }
+    padding:0px;
+    padding-bottom:20px;
 }
+
+.main{
+    background-color: $color2;
+    .container{
+        width: auto;
+    }
+    padding:0px;
+    padding-top:20px;
+}
+
+.footer{
+    .container-fiuld{
+        width: auto;
+    }
+    padding:0px;
+    padding-bottom:200px;
+}
+
 
 .menu
 {
@@ -41,4 +64,12 @@ body
 .kuhaku3
 {
     padding:55px;
+}
+
+
+ul{
+
+}
+li{
+    
 }

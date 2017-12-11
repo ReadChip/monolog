@@ -21,11 +21,7 @@
 }
 
 .head{
-    background-color: $color1; 
-}
-
-.main{
-    background-color: $color2;
+    background-color: $color1;
 }
 
 .body2{
@@ -34,7 +30,6 @@
 
 .footer{
     background-color: $color1;
-    padding: 323.5px;
 }
 
 
@@ -56,6 +51,8 @@ h2{
 
 h3{
     color:$color3;
+    padding:0px;
+    padding-bottom:20px;
 }
 
 
@@ -78,9 +75,8 @@ h3{
 
 
 .slick-slide {
-  text-align: center;
   color: #419be0;
-  background: white;
+  background-color: $color2;
 }
 
 

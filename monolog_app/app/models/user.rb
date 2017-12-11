@@ -5,6 +5,7 @@ class User < ApplicationRecord
                           dependent:   :destroy
   
   has_many :liking, through: :active_likes, source: :liked
+  has_many :usermicros, dependent: :destroy
 
   attr_accessor :remember_token, :activation_token
   before_save   :downcase_email

@@ -2,7 +2,7 @@
 　<%= picture_for micropost.user %>
   <span class="user"><%= link_to micropost.user.name, 'users/' + micropost.user.user_id, :class => "user" %></span>
   <span class="content">
-    <%= micropost.content %>
+    <%= text_url_to_link(h(micropost.content)).html_safe %>
     <%= link_to micropost.picture.url, target: "menuimg" do %>
     <%= image_tag micropost.picture.url, width: "100", height: "100" if micropost.picture? %>
     <% end %>
@@ -12,15 +12,12 @@
 
 
   <span class="timestamp">
+      <% @micropost = micropost %>
+      <%= render 'users/like_form' if logged_in? %>
       <% if current_user?(micropost.user) %>
-      <%= link_to "favorite", micropost, method: :delete,
-                                       data: { confirm: "You sure?" } %>
                                         
       <%= link_to "delete", micropost, method: :delete,
                                        data: { confirm: "本当に削除しますか？" } %>
-      <% else %>
-      <% @micropost = micropost %>
-      <%= render 'users/like_form' if logged_in? %>
     <% end %>
   </span>
 </li>

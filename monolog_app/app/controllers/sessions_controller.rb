@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    unless params[:cancel]
     user = User.find_by(user_id: params[:session][:user_id])
     if user && user.authenticate(params[:session][:password])
       if user.activated?
@@ -21,6 +22,11 @@ class SessionsController < ApplicationController
       flash.now[:danger] = 'ユーザーIDまたはパスワードが間違っています。'
       render 'new', layout: 'capplication'
     end
+
+    else
+      redirect_to root_url, layout: 'capplication'
+    end
+
   end
 
   def destroy

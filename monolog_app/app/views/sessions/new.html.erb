@@ -33,6 +33,7 @@
           <span>ログイン状態を維持する</span>
           <% end %>
           <%= f.submit "ログイン", class: "btn btn-default"%>
+          <%= f.submit "キャンセル",name: "cancel", class: "btn btn-default" %>
         <% end %>
         <br>
       <p>アカウントを持ってない? <%= link_to "今すぐ登録！", signup_path %></p>

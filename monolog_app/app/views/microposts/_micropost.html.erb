@@ -1,6 +1,10 @@
 <li id="micropost-<%= micropost.id %>">
 　<%= picture_for micropost.user %>
+  <% if request.path_info == '/' || request.path_info == '/users' %>
   <span class="user"><%= link_to micropost.user.name, 'users/' + micropost.user.user_id, :class => "user" %></span>
+  <% else %>
+  <span class="user"><%= link_to micropost.user.name, micropost.user.user_id, :class => "user" %></span>
+  <% end %>
   <span class="content">
     <%= text_url_to_link(h(micropost.content)).html_safe %>
     <%= link_to micropost.picture.url, target: "menuimg" do %>

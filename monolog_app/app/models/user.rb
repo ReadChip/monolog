@@ -10,7 +10,7 @@ class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token
   before_save   :downcase_email
   before_create :create_activation_digest
-  VALID_userid_REGEX = /\A[a-z\d\-.]+\z/i
+  VALID_userid_REGEX = /\A[\w+\-.]+\z/i
   validates :user_id, presence: true, length:     { minimum: 3 , maximum: 20 },
                                       format:     { with: VALID_userid_REGEX },
                                       uniqueness: true

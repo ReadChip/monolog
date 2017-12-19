@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  get '/refresh', to: 'sites#refresh'
   resources :users, param: :user_id do
     collection do
       get :liking, :likers

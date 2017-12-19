@@ -12,16 +12,31 @@
           <section class="user_info">
             <%= render 'shared/user_info' %>
           </section>
+          
         </div>
+
+        <div style="display:none;">
+          <%= form_for(@user, url: refresh_path, method: 'get', remote: true) do |f| %>
+            <% f.submit(id: "refresh") %>
+          <% end %>
+        </div>
+        <script>
+          setInterval(function(){document.getElementById("refresh").click();}, 10000);
+        </script>
+
+        <!--%= link_to "更新", refresh_path, remote: true %-->
 
         <div class="col-sm-8  col-md-8  col-lg-7">
           <section class="micropost_form">
             <%= render 'shared/micropost_form' %>
           </section>
 
-          <%=raw "<meta http-equiv='refresh' content='10'; url=/>" %>  
+          <!--%=raw "<meta http-equiv='refresh' content='10000';>" %-->  
 
+          <div id="feed">
           <%= render 'shared/feed' %>
+          </div>
+
         </div>
       </div>
   </div>

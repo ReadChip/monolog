@@ -1,3 +1,4 @@
+<% micropost =  Micropost.find_by(id: @item) %>
 <li id="micropost-<%= micropost.id %>">
 　<%= picture_for micropost.user %>
   <% if request.path_info == '/' || request.path_info == '/users' %>
@@ -18,7 +19,7 @@
   <span class="timestamp">
       <% @micropost = micropost %>
       <%= render 'users/like_form' if logged_in? %>
-      <% if current_user?(micropost.user) %>
+      <% if current_user?(micropost.user) || current_user.admin? %>
                                         
       <%= link_to "delete", micropost, method: :delete,
                                        data: { confirm: "本当に削除しますか？" } %>

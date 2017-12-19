@@ -67,9 +67,6 @@ class User < ApplicationRecord
   end
 
   def feed
-    following_ids = "SELECT user_id FROM microposts"
-    Micropost.where("user_id IN (#{following_ids})
-                     OR user_id = :user_id", user_id: id)
   end
 
   def myfeed

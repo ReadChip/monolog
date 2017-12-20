@@ -4,7 +4,15 @@ class SitesController < ApplicationController
       @user = current_user
       @micropost  = @user.microposts.build
       @feed_items = Array.new
+
       micro = @user.usermicros.first
+
+      if micro.nil?
+        micro = @user.usermicros.new
+        micro = @user.usermicros.first
+        micro.save
+      end
+
 
       @feed_items << micro.micro1
       @feed_items << micro.micro2

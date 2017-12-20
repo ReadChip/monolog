@@ -1,6 +1,5 @@
 <% if @feed_items.any? %>
   <div class="microposts">
-  
     <% @feed_items.each do |item| %>
       <% @item = item %>
       <%= render "microposts/micropost" %>

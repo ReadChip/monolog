@@ -67,7 +67,7 @@ class SitesController < ApplicationController
 
         cnt = 0
 
-      while @feed_items.uniq.count != @feed_items.count && cnt <= 50 do
+      while @feed_items.uniq.count != @feed_items.count && cnt <= 500 do
         @feed_items.uniq!
         m_new = Micropost.offset( rand(Micropost.count) ).first
         @feed_items << m_new.id

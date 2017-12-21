@@ -5,25 +5,12 @@ class SitesController < ApplicationController
       @micropost  = @user.microposts.build
       @feed_items = Array.new
 
-      micro = @user.usermicros.first
-
-      if micro.nil?
-        micro = @user.usermicros.new
-        micro = @user.usermicros.first
-        micro.save
-      end
+      micro = @user.usermicro
+      micro = Usermicro.create(user_id: @user) if micro.nil?
 
 
-      @feed_items << micro.micro1
-      @feed_items << micro.micro2
-      @feed_items << micro.micro3
-      @feed_items << micro.micro4
-      @feed_items << micro.micro5
-      @feed_items << micro.micro6
-      @feed_items << micro.micro7
-      @feed_items << micro.micro8
-      @feed_items << micro.micro9
-      @feed_items << micro.micro10
+      @feed_items = micro.micro1,micro.micro2,micro.micro3,micro.micro4,micro.micro5,
+                     micro.micro6,micro.micro7,micro.micro8,micro.micro9,micro.micro10
       @feed_items.compact!
 
 
@@ -36,7 +23,7 @@ class SitesController < ApplicationController
     if logged_in?
       @user = current_user
       @micropost  = @user.microposts.build
-      micro = @user.usermicros.first
+      micro = @user.usermicro
       /Micropost.update/
       @feed_items = Array.new
 
@@ -51,15 +38,8 @@ class SitesController < ApplicationController
         micro.micro2 = micro.micro1
         micro.save
 
-        @feed_items << micro.micro2
-        @feed_items << micro.micro3
-        @feed_items << micro.micro4
-        @feed_items << micro.micro5
-        @feed_items << micro.micro6
-        @feed_items << micro.micro7
-        @feed_items << micro.micro8
-        @feed_items << micro.micro9
-        @feed_items << micro.micro10
+        @feed_items = micro.micro2,micro.micro3,micro.micro4,micro.micro5,
+                       micro.micro6,micro.micro7,micro.micro8,micro.micro9,micro.micro10
 
         @feed_items.compact!
         m_new = Micropost.offset( rand(Micropost.count) ).first

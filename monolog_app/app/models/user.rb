@@ -5,7 +5,7 @@ class User < ApplicationRecord
                           dependent:   :destroy
   
   has_many :liking, through: :active_likes, source: :liked
-  has_many :usermicros, dependent: :destroy
+  has_one :usermicro, dependent: :destroy
 
   attr_accessor :remember_token, :activation_token
   before_save   :downcase_email
@@ -78,6 +78,11 @@ class User < ApplicationRecord
     Micropost.where("user_id IN (#{following_ids})
                      OR user_id = :user_id", user_id: id)
   end
+
+  def refresh
+    Micropost.where()
+  end
+  
 
   # マイクロポストをライクする
   def like(other_user)

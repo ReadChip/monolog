@@ -1,1 +1,3 @@
-$('#feed').html("<%= j(render(:partial => 'shared/feed')) %>")
+$('.microposts li:nth-child(10)').remove();
+$(document.getElementsByClassName("microposts")).
+prepend('<%= j(render(:partial => 'microposts/micropost')) %>');

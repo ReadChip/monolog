@@ -23,8 +23,6 @@ class UsersController < ApplicationController
       redirect_to(users_path)
     else
       @user = current_user
-      @micropost  = current_user.microposts.build
-      @feed_items = current_user.userfeed
     end
   end
 

@@ -1,1 +1,35 @@
-<%= render 'shared/userfeed' %>
+<div class="container hmenu">
+  <div class="row">
+  <% other_user = User.find_by(user_id: params[:user_id]) %>
+    
+    <div class="col-xs-offset-2  col-sm-3 col-sm-offset-0   col-lg-3 col-lg-offset-0">
+      <% if other_user.picture? %>
+        <%= image_tag(other_user.picture, alt: other_user.name, width: '160', height: '160') %>
+      <% else %>
+        <%= image_tag("top.png", alt: other_user.name, width: '160', height: '160') %>
+      <% end %>
+    </div>
+
+    <div class="col-sm-9  col-lg-9">
+      <div class="row">
+        <div class="name">
+          <div class="col-xs-1  col-lg-1">
+            <div class="glyphicon glyphicon-user"></div>
+          </div>
+          <div class="col-xs-8  col-lg-11">
+            <div class="husername"><%= other_user.name %></div> 
+          </div>
+        </div>
+
+        <div class="comment">
+          <div class="col-xs-1  col-lg-1">
+            <div class="glyphicon glyphicon-comment"></div>
+          </div>
+          <div class="col-xs-12   col-lg-8">
+            <div class="huserprofile"><%= other_user.profile %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,9 +5,12 @@ class SitesController < ApplicationController
       @micropost  = @user.microposts.build
       @feed_items = Array.new
 
-      micro = @user.usermicro
-      if micro.nil?
+      if @user.usermicro.nil?
         micro = Usermicro.create(user_id: @user.id) 
+        m_new = Micropost.offset( rand(Micropost.count) ).first
+        micro.micro1 = m_new.id
+      else
+        micro = @user.usermicro
       end
 
       @feed_items = micro.micro1,micro.micro2,micro.micro3,micro.micro4,micro.micro5,

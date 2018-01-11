@@ -41,7 +41,7 @@ class SitesController < ApplicationController
       feed_cnt << micro.micro2 = micro.micro1
       micro.save
 
-      feed_cnt[0] = micro.micro1
+      feed_cnt << micro.micro1
       feed_cnt.compact!
 
       m_new = Micropost.offset( rand(Micropost.count) ).first

@@ -28,6 +28,8 @@ gem 'jquery-slick-rails'
 gem 'slim'
 gem 'carrierwave'
 
+gem "recaptcha", require: "recaptcha/rails"
+
 
 gem 'coffee-script-source', '1.8.0'
 gem 'slim'

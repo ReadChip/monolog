@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     unless params[:cancel]
-      if @user.save
+      if verify_recaptcha(model: @user) &&  @user.save
         @user.send_activation_email
         flash[:info] = @user.email + "に確認メールを送りました。"
         redirect_to root_url

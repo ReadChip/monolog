@@ -14,9 +14,7 @@
 <div class="form-group">
   <%= f.password_field :password_confirmation, class: 'form-control',placeholder: "パスワード再入力" %>
 </div>
-<div class="g-recaptcha">
-  <div class="g-recaptcha" data-sitekey=”6Lc1XEAUAAAAAIHKswLto3WgK5jSbOEM6W_0-1i1”></div>
-</div>
+  <%= recaptcha_tags %><br>
   <%= f.submit "登録", class: "btn btn-warning" %>
   <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
 <% end %>

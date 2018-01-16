@@ -14,8 +14,9 @@
 <div class="form-group">
   <%= f.password_field :password_confirmation, class: 'form-control',placeholder: "パスワード再入力" %>
 </div>
+  <%= recaptcha_tags %><br>
 <div class="form-group">
-  <%= f.submit "登録", class: "btn btn-default" %>
+  <%= f.submit "登録", class: "btn btn-default"%>
 </div>
 <% end %>
 

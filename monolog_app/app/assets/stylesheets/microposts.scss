@@ -21,6 +21,7 @@
   word-break: break-all;
   li{
     padding: 5px;
+    margin-bottom: -80px;
     background-color: $color3;
     border-top: 2px solid $color2;
   }
@@ -56,4 +57,68 @@ span.picture {
   input {
     border: 0;
   }
+}
+
+.favoritebtn{
+    position:relative;    //相対位置への配置
+    display: block;
+    top:-25px;
+    margin-left:77px;  
+    font-size: 17px;
+}
+
+.favoritecount{
+    position:relative;    //相対位置への配置
+    display: block;
+    top:-50.3px;
+    margin-left:95px;  
+    font-size: 17px;
+}
+
+.delete{
+    position:relative;    //相対位置への配置
+    display: block;
+    top:-71.6px;
+    margin-left:117px;
+    font-size: 14px;  
+    
+}
+
+
+//ボタンの枠を削除
+button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        padding: 0;
+        appearance: none;
+}
+
+//吹き出し
+.balloonoya {
+  position   : relative;                /* 指定した分だけ相対的に移動 */
+}
+.balloonoya:hover .balloon {
+  display: inline;                /* インライン要素として表示 */
+}
+.balloon {
+  position   : absolute;                /* 親要素を基準 */
+  display: none;                        /* 要素を非表示 */
+  padding: 2px;                         /* テキストの前後の余白 */
+  background-color: rgba(153, 153, 153, 0.67);       /* 背景色（透明度） */
+  width:180px;                          /* 吹き出し全体の幅 */
+  left : 30%;                           /* 表示位置 */
+  bottom : 100%;                        /* 表示位置 */
+  margin-bottom : 12px;                 /* 表示位置 */
+  font-size: 80%;                       /* 文字サイズ */
+}
+.balloon:after{
+  border-top: 12px solid rgba(153, 153, 153, 0.67);    /* 吹き出し口の高さ・色 */
+  border-left: 10px solid transparent;    /* 吹き出し口の幅１／２ */
+  border-right: 10px solid transparent;   /* 吹き出し口の幅１／２ */
+  bottom: -12px;                          /* 吹き出し口の位置調整 */
+  left : 5%;                              /* 吹き出し口の横位置 */
+  content: "";                       /* コンテンツの挿入 */
+  position: absolute;                /* 親要素を基準 */
 }

@@ -1,4 +1,8 @@
 <%= form_for(current_user.active_likes.build) do |f| %>
   <div><%= hidden_field_tag :liked_id, @micropost.id %></div>
-  <%= f.submit "Like", class: "btn btn-primary" %>
+  
+<%= f.button :submit, name: "conceal", value: "1" do %>
+  <i class="glyphicon glyphicon-star-empty"></i>
+<% end %>
+
 <% end %>

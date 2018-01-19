@@ -28,7 +28,7 @@
         <%= f.label :password_confirmation, "パスワード再入力" %>
         <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "パスワード再入力" %>
         <br>
-        <br>
+        <%= recaptcha_tags %><br>
         <%= f.submit "アカウント作成", class: "btn btn-secondary" %>
         <%= f.submit "キャンセル",name: "cancel", class: "btn btn-default" %>
       <% end %>

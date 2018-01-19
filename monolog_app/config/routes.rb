@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   get '/refresh', to: 'sites#refresh'
+  get '/bell', to: 'users#bell'
   resources :users, param: :user_id do
     collection do
       get :liking, :likers

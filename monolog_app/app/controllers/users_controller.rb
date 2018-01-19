@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def index 
       @user = current_user
       @micropost  = current_user.microposts.build
-      @feed_items = current_user.myfeed.paginate(page: params[:page])
+      @feed_items = current_user.myfeed.paginate(page: params[:page],per_page: 10)
   end
 
   def all_users
@@ -81,6 +81,20 @@ class UsersController < ApplicationController
     @users = @user.likers.paginate(page: params[:page])
     render 'show_like'
   end
+
+  def bell    
+    micros = current_user.microposts
+    @like_id = Array.new
+    micros.each do |micro|
+      @like_id << micro.passive_likes unless micro.passive_likes.map(&:id) == []
+    end
+    @like_id.flatten!
+    @like_id.sort!{|a, b| b <=> a }
+
+    current_user.time = DateTime.now
+    current_user.save
+  end
+  
 
   private
 

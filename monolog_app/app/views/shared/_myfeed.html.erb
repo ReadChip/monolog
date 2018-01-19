@@ -3,6 +3,8 @@
     <% @feed_items.each do |item| %>
       <% @item = item %>
       <%= render "microposts/micropost" %>
+      <div align="right"><%= l(item.created_at.in_time_zone('Tokyo'), format: :long) %></div>
     <% end %>
   </ol>
+  <%= will_paginate @feed_items %>
 <% end %>

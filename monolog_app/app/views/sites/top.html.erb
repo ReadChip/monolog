@@ -21,7 +21,8 @@
           <% end %>
         </div>
         <script>
-          setInterval(function(){document.getElementById("refresh").click();}, 10000);
+          clearInterval(id);
+          var id = setInterval(function(){document.getElementById("refresh").click();}, 10000);
         </script>
 
         <!--%= link_to "更新", refresh_path, remote: true %-->

@@ -1,0 +1,13 @@
+
+<% @like_id.each_with_index do |micro,idx| %>
+  <% users = User.find(micro.liker_id) %>
+  <div>
+    <%= picture_for users %><font  size="5" color="white"><%= users.name %></font>さんがいいねしました
+    <div class="microposts">
+      <% @item = micro.liked_id %>
+      <%= render "microposts/micropost" %>
+    </div>
+  </div>
+  <% break if idx == 9 %>
+<% end %>
+

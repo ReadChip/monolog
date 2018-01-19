@@ -1,0 +1,9 @@
+<% time = DateTime.now %>
+<% time = current_user.time unless current_user.time.nil? %>
+<% @update_like = Like.where("created_at >= ?",time) %>
+
+<ul class="nav navbar-nav">
+  <li><%= link_to " BELL",bell_path, class: "glyphicon glyphicon-bell" %></li>
+  <li><%= link_to " EDIT", edit_path, class: "glyphicon glyphicon-wrench" %></li> 
+  <li><%= link_to " LOGOUT", logout_path, class: "glyphicon glyphicon-log-out", method: :delete %></li>
+</ul>

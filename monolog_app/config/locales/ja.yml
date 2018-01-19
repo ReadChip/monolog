@@ -1,5 +1,13 @@
 ---
 ja:
+  date:
+    formats:
+      default: ! '%Y/%m/%d'
+      long: ! '%Y年%m月%d日(%a)'
+      short: ! '%m/%d'
+  will_paginate:
+    previous_label: "前へ"
+    next_label: "次へ"
   attributes:
     user_id: ユーザーID
     name: ユーザー名

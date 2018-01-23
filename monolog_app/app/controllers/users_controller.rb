@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :update, :destroy,:show,
-                                        :liking, :likers]
+                                        :liking, :likers,:blocking, :blockers]
 #  before_action :correct_user,   only: [:edit]
   before_action :admin_user,     only: [:destroy, :all_users]
   before_action :link_only,     only: [:new, :create, :update, :destroy,
@@ -80,6 +80,20 @@ class UsersController < ApplicationController
     @user  = User.find_by(user_id: params[:user_id])
     @users = @user.likers.paginate(page: params[:page])
     render 'show_like'
+  end
+
+  def blocking
+    @title = "Blocking"
+    @user  = User.find(params[:id])
+    @users = @user.blocking.paginate(page: params[:page])
+    render 'show_block'
+  end
+
+  def blockers
+    @title = "Blockers"
+    @user  = User.find(params[:id])
+    @users = @user.blockers.paginate(page: params[:page])
+    render 'show_block'
   end
 
   def bell    

@@ -47,11 +47,16 @@ class SitesController < ApplicationController
       m_new = Micropost.offset( rand(Micropost.count) ).first
       feed_cnt[0] = (m_new.id)
       cnt = 0
+      block = current_user.blockers.ids
 
-      while feed_cnt.uniq.count != feed_cnt.count && cnt <= 500 do
+      while feed_cnt.uniq.count != feed_cnt.count && cnt <= 500  do
         m_new = Micropost.offset( rand(Micropost.count) ).first
         feed_cnt[0] = (m_new.id)
         cnt = cnt + 1
+        while block.include?(m_new.id) do
+          m_new = Micropost.offset( rand(Micropost.count) ).first
+          feed_cnt[0] = (m_new.id)
+        end
       end
 
       micro.micro1 = m_new.id

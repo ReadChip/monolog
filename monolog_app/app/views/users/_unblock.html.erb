@@ -1,0 +1,5 @@
+<%= form_for(current_user.active_blocklists.find_by(blocked_id: @user),
+             html: { method: :delete }) do |f| %>
+             <div><%= hidden_field_tag :url, @url %></div>
+  <%= f.submit "ブロック解除", class: "btn" %>
+<% end %>

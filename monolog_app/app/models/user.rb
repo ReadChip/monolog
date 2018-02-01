@@ -7,6 +7,16 @@ class User < ApplicationRecord
   has_many :liking, through: :active_likes, source: :liked
   has_one :usermicro, dependent: :destroy
 
+  has_many :active_blocklists, class_name:  "Blocklist",
+                                  foreign_key: "blocker_id",
+                                  dependent:   :destroy
+  has_many :blocking, through: :active_blocklists, source: :blocked
+
+  has_many :passive_blocklists, class_name:  "Blocklist",
+                                   foreign_key: "blocked_id",
+                                   dependent:   :destroy
+  has_many :blockers, through: :passive_blocklists, source: :blocker
+
   attr_accessor :remember_token, :activation_token
   before_save   :downcase_email
   before_create :create_activation_digest
@@ -97,6 +107,19 @@ class User < ApplicationRecord
   # 現在のユーザーがライクしてたらtrueを返す
   def liking?(other_user)
     liking.include?(other_user)
+  end
+
+  def block(other_user)
+    active_blocklists.create(blocked_id: other_user.id)
+  end
+
+  def unblock(other_user)
+    active_blocklists.find_by(other_user).destroy
+  end
+
+  # 現在のユーザーがフォローしてたらtrueを返す
+  def blocking?(other_user)
+    blocking.include?(other_user)
   end
 
   private

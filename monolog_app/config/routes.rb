@@ -11,13 +11,14 @@ Rails.application.routes.draw do
   get '/bell', to: 'users#bell'
   resources :users, param: :user_id do
     collection do
-      get :liking, :likers
+      get :liking, :likers, :blocking, :blockers
     end
   end 
 
   resources :account_activations, only: [:edit]
   resources :microposts,          only: [:create, :destroy]
   resources :likes,       only: [:create, :destroy]
+  resources :blocklists,       only: [:create, :destroy]
   
   get '*path', controller: 'application', action: 'render_404'
 

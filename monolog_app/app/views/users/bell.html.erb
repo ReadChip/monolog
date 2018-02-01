@@ -1,11 +1,5 @@
 <% @like_id.each_with_index do |micro,idx| %>
   <% users = User.find(micro.liker_id) %>
-
-
-
-
-
-
   <div class="container">
     <div class="row">
       <div class="likeduser">
@@ -21,4 +15,3 @@
   </div>
   <% break if idx == 9 %>
 <% end %>
-

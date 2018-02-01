@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180111031907) do
+ActiveRecord::Schema.define(version: 20180123002456) do
+
+  create_table "blocklists", force: :cascade do |t|
+    t.integer "blocker_id"
+    t.integer "blocked_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blocked_id"], name: "index_blocklists_on_blocked_id"
+    t.index ["blocker_id", "blocked_id"], name: "index_blocklists_on_blocker_id_and_blocked_id", unique: true
+    t.index ["blocker_id"], name: "index_blocklists_on_blocker_id"
+  end
 
   create_table "likes", force: :cascade do |t|
     t.integer "liker_id"

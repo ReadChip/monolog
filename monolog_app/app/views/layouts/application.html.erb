@@ -31,7 +31,7 @@
             <div id="gnavi" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
                 <li><%= link_to " HOME",root_url, class: "glyphicon glyphicon-home" %></li>
-                <li><%= link_to " BELL",bell_path, class: "glyphicon glyphicon-bell" %></li>
+                <li id="bell"><%= link_to " BELL",bell_path, class: "glyphicon glyphicon-bell" %></li>
                 <li><%= link_to " EDIT", edit_path, class: "glyphicon glyphicon-wrench" %></li> 
                 <li><%= link_to " LOGOUT", logout_path, class: "glyphicon glyphicon-log-out", method: :delete %></li>
               </ul>
@@ -45,7 +45,17 @@
   </body>
 </html>
 
+<% unless current_user.time.nil? %>
+<% time = current_user.time %>
+<% else %>
+<% time = DateTime.now %>
+<% end %>
+
+<% likes = Like.where("created_at >= ?",time) %>
+<% unless likes.ids == [] %>
+<% cnt = likes.count %>
 <script>
-$(document.getElementsByClassName("nav navbar-nav"))
-.html("#{j(<%= render 'shared/bell_up' %>)}");
+$('li#bell').after('<li><%= link_to " BELL(#{cnt})",bell_path, class: "glyphicon glyphicon-bell", style: "color: red" %></li>');
+$('li#bell').remove();
 </script>
+<% end %>

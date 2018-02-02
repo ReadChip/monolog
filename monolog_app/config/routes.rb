@@ -9,9 +9,10 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   get '/refresh', to: 'sites#refresh'
   get '/bell', to: 'users#bell'
+  get '/mypage', to: 'users#mypage'
   resources :users, param: :user_id do
     collection do
-      get :liking, :likers, :blocking, :blockers
+      get :liking, :likers
     end
   end 
 

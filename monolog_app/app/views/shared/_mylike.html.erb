@@ -1,0 +1,9 @@
+<% if @like_items.any? %>
+  <ol class="microposts">
+    <% @like_items.each do |item| %>
+      <% @item = item %>
+      <%= render "microposts/micropost" %>
+    <% end %>
+  </ol>
+  <%= will_paginate @like_items, :param_name => 'like',:params=> {:now=>"like"} %>
+<% end %>

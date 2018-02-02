@@ -1,0 +1,13 @@
+  <% if @users.any? %>
+    <% @users.each do |item| %>
+      <% @item = item %>
+      <% if item.picture? %>
+        <%= image_tag(item.picture, alt: item.name, width: '90', height: '90') %>
+      <% else %>
+        <%= image_tag("top.png", alt: item.name, width: '90', height: '90') %>
+      <% end %>
+      <%= link_to item.name,'users/' + item.user_id %>
+    <% end %>
+    </ol>
+    <%= will_paginate @users, :param_name => 'block',:params=> {:now=>"block"} %>
+  <% end %>

@@ -1,7 +1,10 @@
 <% @like_id.each_with_index do |micro,idx| %>
   <% users = User.find(micro.liker_id) %>
   <div>
-    <%= picture_for users %><font  size="5" color="white"><%= users.name %></font>さんがいいねしました
+    <%= picture_for users %>
+    <%= link_to users.name,'users/' + users.user_id,
+     :style=>"color:white;font-size: 1.4em;"  %>
+    さんがいいねしました
   </div>
   <div class="microposts">
     <% @item = micro.liked_id %>

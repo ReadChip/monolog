@@ -1,28 +1,61 @@
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <%= picture_for @user %>
-      <h1><%= @user.name %></h1>
-      <span><%= link_to "view my profile", @user %></span>
-      <span><b>Microposts:</b> <%= @user.microposts.count %></span>
-    </section>
-    <section class="stats">
-      <% if @users.any? %>
-        <div class="user_avatars">
-          <% @users.each do |user| %>
-            <%= link_to picture_for user %>
-          <% end %>
-        </div>
-      <% end %>
-    </section>
-  </aside>
+ <div class="container hmenu">
+    <div class="row">
+    
+       <div class="col-xs-offset-2  col-sm-3 col-sm-offset-0   col-lg-3 col-lg-offset-0">
+       <% if @user.picture? %>
+         <%= image_tag(@user.picture, alt: @user.name, width: '160', height: '160') %>
+       <% else %>
+         <%= image_tag("top.png", alt: @user.name, width: '160', height: '160') %>
+       <% end %>
+
+       </div>
+
+       <div class="col-sm-9  col-lg-9">
+         <div class="row">
+
+          <div class="name">
+            <div class="col-xs-1  col-lg-1">
+              <div class="glyphicon glyphicon-user"></div>
+            </div>
+            <div class="col-xs-8  col-lg-11">
+              <div class="husername"><%= @user.name %></div> 
+            </div>
+          </div>
+
+          <div class="comment">
+            <div class="col-xs-1  col-lg-1">
+              <div class="glyphicon glyphicon-comment"></div>
+            </div>
+            <div class="col-xs-12   col-lg-8">
+              <div class="huserprofile"><%= @user.profile %></div>
+            </div>
+          </div>
+
+         </div>
+       </div>
+
+    </div>
+</div>
+
+
+
+<div class="container hemit">
+  <div class="tab">Block List</div>
+  <div class="row">
+
+
   <div class="col-md-8">
-    <h3><%= @title %></h3>
     <% if @users.any? %>
       <ul class="users block">
         <%= render @users %>
       </ul>
       <%= will_paginate %>
     <% end %>
+
+
   </div>
 </div>
+
+
+
+        

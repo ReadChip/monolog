@@ -1,5 +1,5 @@
 <%= form_for(current_user.active_blocklists.build) do |f| %>
-  <div><%= hidden_field_tag :blocked_id, @user.id %></div>
+  <div><%= hidden_field_tag :blocked_id, @user.user_id %></div>
   <div><%= hidden_field_tag :url, @url %></div>
   <%= f.submit "ブロック", class: "btn btn-primary" %>
 <% end %>

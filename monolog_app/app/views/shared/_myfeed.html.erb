@@ -6,5 +6,5 @@
       <div align="right"><%= l(item.created_at.in_time_zone('Tokyo'), format: :long) %></div>
     <% end %>
   </ol>
-  <%= will_paginate @feed_items %>
+  <%= will_paginate @feed_items, :param_name => 'emit',:params=> {:now=>"emit"} %>
 <% end %>

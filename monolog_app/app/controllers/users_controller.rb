@@ -10,7 +10,10 @@ class UsersController < ApplicationController
   def index 
       @user = current_user
       @micropost  = current_user.microposts.build
-      @feed_items = current_user.myfeed.paginate(page: params[:page],per_page: 10)
+      @feed_items = current_user.myfeed.paginate(page: params[:emit],per_page: 10)
+      @users = @user.blocking.paginate(page: params[:block],per_page: 30)
+      @like_items = current_user.liking.paginate(page: params[:like],per_page: 10)
+
   end
 
   def all_users
@@ -19,11 +22,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(user_id: params[:user_id])
-    if current_user?(@user)
-      redirect_to(users_path)
-    else
-      @user = current_user
-    end
+    redirect_to(users_path) if current_user?(@user)
   end
 
   def edit
@@ -68,32 +67,14 @@ class UsersController < ApplicationController
     redirect_to all_path
   end
 
-  def liking
-    @title = "Liking"
-    @user  = User.find_by(user_id: params[:user_id])
-    @users = @user.liking.paginate(page: params[:page])
-    render 'show_like'
-  end
-
-  def likers
-    @title = "Likers"
-    @user  = User.find_by(user_id: params[:user_id])
-    @users = @user.likers.paginate(page: params[:page])
-    render 'show_like'
-  end
-
-  def blocking
-    @title = "Blocking"
-    @user  = User.find(params[:id])
-    @users = @user.blocking.paginate(page: params[:page])
-    render 'show_block'
-  end
-
-  def blockers
-    @title = "Blockers"
-    @user  = User.find(params[:id])
-    @users = @user.blockers.paginate(page: params[:page])
-    render 'show_block'
+  def mypage
+    if params[:emit]
+      render 'myemit',{hoge: "emit"}
+    elsif params[:like]
+      render 'mylike',{hoge: "like"}
+    else
+      render 'myblock',{hoge: "block"}
+    end
   end
 
   def bell    

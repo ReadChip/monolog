@@ -63,7 +63,8 @@ body{
         padding-top: 30px;
         padding-left: 10px;
         padding-right: 10px;
-        padding-bottom: 50px;
+        padding-bottom: 30px;
+        border-radius: 10px;
 }
 
 .name{
@@ -120,4 +121,39 @@ body{
 
         font-weight:bold; 
         font-size:20px;
+        border-radius: 5px;
+}
+
+.bellmicroposts{
+  list-style: none;
+  display: block;
+  padding: 0px;
+  word-break: break-all;
+
+  li{
+    padding-top: 5px;
+    background-color: $color3;
+    border-top: 2px solid $color2;
+  }
+
+  .user {
+    position:relative;    //相対位置への配置
+    font-size: 14.5px;
+    font-weight: 600;
+    color: $color4;
+    top:-8px;             //名前を上に
+    margin-left: 2px;
+  }
+  .content {
+    position:relative;    //相対位置への配置
+    display: block;
+    top:-25px;             //エミットを上に
+    margin-left: 80px;
+   
+    white-space: pre-wrap;
+  }
+}
+
+.likeduser{
+        padding-top:10px;
 }

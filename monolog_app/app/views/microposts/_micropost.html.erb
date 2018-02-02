@@ -12,15 +12,14 @@
 
   <span class="timestamp">
       <% @micropost = micropost %>
-      <!--<div class="balloonoya">
-        <span class="balloon">吹き出しが表示される</span>-->
         <div class="favoritebtn"><%= render 'users/like_form' if logged_in? %></div>
-        <div class="favoritecount"><%= micropost.likers.count %></div>
-      <!--</div>-->
+      <div class="favoritecount"><%= micropost.likers.count %></div>
+ 
       <% if current_user?(micropost.user) || current_user.admin? %>
-                                        
-      <div class="delete"><%= link_to "", micropost, method: :delete,
-                                       data: { confirm: "本当に削除しますか？" }, class: "glyphicon glyphicon-trash", :style=>"color:black;"  %>
+                                            
+        <div class="delete">
+          <%= link_to "", micropost, method: :delete,
+                                        data: { confirm: "本当に削除しますか？" }, class: "glyphicon glyphicon-trash" %>
       </div>
     <% end %>
   </span>

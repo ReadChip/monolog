@@ -50,12 +50,13 @@ class SitesController < ApplicationController
         @block << item.id
       end
       
-      save = Micropost.where("user_id NOT IN(?)",@block)
+      save = Micropost.where("user_id NOT IN(?) AND id NOT IN(?)",@block,feed_cnt)
       m_new = save.offset( rand(save.count) ).first
       cnt = 0
 
-      while feed_cnt.include?("#{m_new.id}") && cnt <= 500  do
+      while (m_new.user.blockers.count >= 10 && cnt <= 500)   do
         m_new = save.offset( rand(save.count) ).first
+        break if m_new.user == @user
         cnt = cnt + 1
       end
 

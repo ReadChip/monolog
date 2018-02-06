@@ -1,20 +1,12 @@
 <% @like_id.each_with_index do |micro,idx| %>
   <% users = User.find(micro.liker_id) %>
-<<<<<<< HEAD
-  <div>
-    <%= picture_for users %>
-    <%= link_to users.name,'users/' + users.user_id,
-     :style=>"color:white;font-size: 1.4em;"  %>
-    さんがいいねしました
-  </div>
-  <div class="microposts">
-    <% @item = micro.liked_id %>
-    <%= render "microposts/micropost" %>
-=======
   <div class="container">
     <div class="row">
       <div class="likeduser">
-        <div class="col-lg-12"><%= picture_for users %> <font  size="5" color="white"><%= users.name %></font>さんがお気に入り登録しました</div>
+        <div class="col-lg-12"><%= picture_for users %>
+                               <%= link_to users.name,'users/' + users.user_id,
+                                   :style=>"color:white;font-size: 1.4em;"  %>
+                              さんがいいねしました</div>
       </div>
         <div class="col-lg-12">
           <div class="bellmicroposts">
@@ -23,7 +15,6 @@
           </div>
         </div>
     </div>
->>>>>>> db552f2a65661026e4c53ef277124b7779c82756
   </div>
   <% break if idx == 9 %>
 <% end %>

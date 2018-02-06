@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :update, :destroy,:show,
-                                        :liking, :likers,:blocking, :blockers]
+  before_action :logged_in_user, only: [:index, :update, :destroy,:show,:edit,
+                                        :mypage,:liking, :likers,:bell]
 #  before_action :correct_user,   only: [:edit]
   before_action :admin_user,     only: [:destroy, :all_users]
-  before_action :link_only,     only: [:new, :create, :update, :destroy,
-                                      :liking, :likers,:show]
+  before_action :link_only,     only: [:new, :create, :update, :destroy, :show]
   
 
   def index 

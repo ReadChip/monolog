@@ -33,6 +33,8 @@
                 <li><%= link_to " HOME",root_url, class: "glyphicon glyphicon-home" %></li>
 
                 <% if logged_in? %>
+
+                <% if logged_in? %>
                   <% unless current_user.time.nil? %>
                     <% time = current_user.time %>
                   <% else %>
@@ -56,8 +58,10 @@
                 <% else %>
                   <li><%= link_to " BELL",bell_path, class: "glyphicon glyphicon-bell" %></li>
                 <% end %>
+
                 <li><%= link_to " EDIT", edit_path, class: "glyphicon glyphicon-wrench" %></li> 
                 <li><%= link_to " LOGOUT", logout_path, class: "glyphicon glyphicon-log-out", method: :delete %></li>
+              <% end %>
               </ul>
           </div>
         </div>

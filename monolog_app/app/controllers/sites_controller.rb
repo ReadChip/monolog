@@ -44,19 +44,20 @@ class SitesController < ApplicationController
       feed_cnt << micro.micro1
       feed_cnt.compact!
 
-      m_new = Micropost.offset( rand(Micropost.count) ).first
-      feed_cnt[0] = (m_new.id)
+      @block = Array.new
+      @block << 999999
+      current_user.blocking.each do |item|
+        @block << item.id
+      end
+      
+      save = Micropost.where("user_id NOT IN(?) AND id NOT IN(?)",@block,feed_cnt)
+      m_new = save.offset( rand(save.count) ).first
       cnt = 0
-      block = current_user.blockers.ids
 
-      while feed_cnt.uniq.count != feed_cnt.count && cnt <= 500  do
-        m_new = Micropost.offset( rand(Micropost.count) ).first
-        feed_cnt[0] = (m_new.id)
+      while (m_new.user.blockers.count >= 10 && cnt <= 500)   do
+        m_new = save.offset( rand(save.count) ).first
+        break if m_new.user == @user
         cnt = cnt + 1
-        while block.include?(m_new.id) do
-          m_new = Micropost.offset( rand(Micropost.count) ).first
-          feed_cnt[0] = (m_new.id)
-        end
       end
 
       micro.micro1 = m_new.id

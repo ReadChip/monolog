@@ -1,5 +1,5 @@
 <%= form_for(current_user.active_likes.find_by(liked_id: @micropost),
-             html: { method: :delete }) do |f| %>
+             html: { method: :delete }, remote: true) do |f| %>
 <div><%= hidden_field_tag :liked_id, @micropost.id %></div>
 <%= f.button :submit, name: "conceal", value: "1" do %>
   <i class="glyphicon glyphicon-star"></i>

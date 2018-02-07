@@ -83,6 +83,10 @@ class User < ApplicationRecord
     Micropost.where("user_id = ?", id)
   end
 
+  def mylike
+    Micropost.where("id = ?", liking)
+  end
+
   def userfeed
     following_ids = "SELECT user_id FROM microposts"
     Micropost.where("user_id IN (#{following_ids})
@@ -114,7 +118,7 @@ class User < ApplicationRecord
   end
 
   def unblock(other_user)
-    active_blocklists.find_by(other_user).destroy
+    active_blocklists.find_by(blocked_id: other_user.id).destroy
   end
 
   # 現在のユーザーがフォローしてたらtrueを返す

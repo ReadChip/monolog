@@ -84,6 +84,7 @@ body{
 .huserprofile{
         position:relative;    //相対位置への配置
         padding: 0px;
+        padding-left:30px;
         font-size:20px;
         color: $color4;
 }
@@ -157,3 +158,8 @@ body{
 .likeduser{
         padding-top:10px;
 }
+
+//.block{
+//        padding:0px;
+ //       padding-left:900px;
+//}

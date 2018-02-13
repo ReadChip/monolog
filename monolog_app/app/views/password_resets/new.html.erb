@@ -1,0 +1,17 @@
+<div class="container-fluid main">
+<h1>パスワード再設定</h1>
+<p>・アカウントに登録したメールアドレスを入力してください。</p>
+<p>・メールアドレス宛にパスワード再設定のためのメールが届きます。</p>
+  <div class="row">
+    <div class="col-sm-7 col-sm-offset-3 col-md-5 col-md-offset-3">
+      <div class="container-fluid kuhaku2"></div>
+      <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.submit "送る", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

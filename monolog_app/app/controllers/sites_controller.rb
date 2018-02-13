@@ -7,8 +7,9 @@ class SitesController < ApplicationController
 
       if @user.usermicro.nil?
         micro = Usermicro.create(user_id: @user.id) 
-        m_new = Micropost.offset( rand(Micropost.count) ).first
+        m_new = Micropost.last
         micro.micro1 = m_new.id
+        micro.save
       else
         micro = @user.usermicro
       end

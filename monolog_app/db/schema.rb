@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180123002456) do
+ActiveRecord::Schema.define(version: 20180208010501) do
 
   create_table "blocklists", force: :cascade do |t|
     t.integer "blocker_id"
@@ -72,8 +72,10 @@ ActiveRecord::Schema.define(version: 20180123002456) do
     t.boolean "admin", default: false
     t.string "name", default: "名無し"
     t.string "picture", default: "top.png"
-    t.string "profile", default: "なし"
+    t.string "profile", default: "　なし"
     t.datetime "time"
+    t.string "reset_digest"
+    t.datetime "reset_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

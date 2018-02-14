@@ -34,11 +34,10 @@
 
                 <% if logged_in? %>
 
-                <% if logged_in? %>
-                  <% unless current_user.time.nil? %>
-                    <% time = current_user.time %>
-                  <% else %>
-                    <% time = current_user.created_at %>
+                    <% unless current_user.time.nil? %>
+                      <% time = current_user.time %>
+                    <% else %>
+                      <% time = current_user.created_at %>
                   <% end %>
                   <% micros = current_user.microposts %>
                   <% @like_id = Array.new %>
@@ -55,9 +54,6 @@
                   <% else %>
                     <li><%= link_to " BELL",bell_path, class: "glyphicon glyphicon-bell" %></li>
                   <% end %>
-                <% else %>
-                  <li><%= link_to " BELL",bell_path, class: "glyphicon glyphicon-bell" %></li>
-                <% end %>
 
                 <li><%= link_to " EDIT", edit_path, class: "glyphicon glyphicon-wrench" %></li> 
                 <li><%= link_to " LOGOUT", logout_path, class: "glyphicon glyphicon-log-out", method: :delete %></li>

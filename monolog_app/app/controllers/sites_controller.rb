@@ -7,8 +7,9 @@ class SitesController < ApplicationController
 
       if @user.usermicro.nil?
         micro = Usermicro.create(user_id: @user.id) 
-        m_new = Micropost.offset( rand(Micropost.count) ).first
+        m_new = Micropost.last
         micro.micro1 = m_new.id
+        micro.save
       else
         micro = @user.usermicro
       end
@@ -29,6 +30,7 @@ class SitesController < ApplicationController
       @micropost  = @user.microposts.build
       feed_cnt = Array.new
       micro = @user.usermicro
+      time = DateTime.now - Rational(0.25)
 
       feed_cnt << micro.micro10 = micro.micro9
       feed_cnt << micro.micro9 = micro.micro8
@@ -39,8 +41,6 @@ class SitesController < ApplicationController
       feed_cnt << micro.micro4 = micro.micro3
       feed_cnt << micro.micro3 = micro.micro2
       feed_cnt << micro.micro2 = micro.micro1
-      micro.save
-
       feed_cnt << micro.micro1
       feed_cnt.compact!
 
@@ -50,11 +50,16 @@ class SitesController < ApplicationController
         @block << item.id
       end
       
-      save = Micropost.where("user_id NOT IN(?) AND id NOT IN(?)",@block,feed_cnt)
+      
+      save = Micropost.where("user_id NOT IN(?) AND id NOT IN(?) AND created_at > ?",@block,feed_cnt,time)
+      if save.empty?
+        return 
+      end
+      
       m_new = save.offset( rand(save.count) ).first
       cnt = 0
 
-      while (m_new.user.blockers.count >= 10 && cnt <= 500)   do
+      while (m_new.user.blockers.count >= 10 && cnt <= 50)   do
         m_new = save.offset( rand(save.count) ).first
         break if m_new.user == @user
         cnt = cnt + 1

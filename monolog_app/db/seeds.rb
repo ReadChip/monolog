@@ -17,3 +17,6 @@ User.create!(user_id:  "ojisan",
              admin:     true,
              activated: true,
              activated_at: Time.zone.now)
+
+Micropost.create!(content: "ようこそMonologへ！",
+                  user_id: 1)

@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :update, :destroy,:show,:edit,
-                                        :mypage,:liking, :likers,:bell]
+                                        :mypage,:liking, :likers,:bell,:destroy]
 #  before_action :correct_user,   only: [:edit]
-  before_action :admin_user,     only: [:destroy, :all_users]
+  before_action :admin_user,     only: [:all_users]
   before_action :link_only,     only: [:new, :create, :update, :destroy, :show]
   
 
@@ -62,8 +62,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find_by(id: params[:user_id]).destroy
-    flash[:success] = "User deleted"
-    redirect_to all_path
+    redirect_to root_url
   end
 
   def mypage

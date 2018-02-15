@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20180208010501) do
     t.boolean "admin", default: false
     t.string "name", default: "名無し"
     t.string "picture", default: "top.png"
-    t.string "profile", default: "　なし"
+    t.string "profile", default: "なし"
     t.datetime "time"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
